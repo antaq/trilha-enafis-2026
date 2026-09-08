@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ENAFIS 2026 · Programação — Encontro Nacional de Fiscalização (SFC/ANTAQ)</title>
+<meta name="description" content="Programação do ENAFIS 2026 — Encontro Nacional de Fiscalização da SFC/ANTAQ — 21 a 25 de setembro de 2026, Curitiba/PR (URECB). 40 horas, formato híbrido."/>
+<meta name="theme-color" content="#003366"/>
+<link rel="icon" href="favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="32x32" href="Imagens/favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="Imagens/favicon-16.png"/>
+<link rel="apple-touch-icon" href="Imagens/apple-touch-icon.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  :root{
+    --azul-escuro:#003366;
+    --azul-medio:#004488;
+    --azul-vibrante:#0066CC;
+    --azul-claro:#F0F9FF;
+    --azul-borda:#BAE6FD;
+    --dourado:#FFD700;
+    --tinta:#1f2937;
+    --tinta-suave:#475569;
+    --tinta-fraca:#94a3b8;
+    --fundo:#eef2f7;
+    --branco:#ffffff;
+    --borda:#e2e8f0;
+    --sombra:0 10px 25px -8px rgba(0,51,102,.18);
+    --sombra-sm:0 4px 12px -4px rgba(0,51,102,.15);
+    --topo-sticky:190px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--fundo);
+    color:var(--tinta);
+    font-family:'Open Sans','Segoe UI',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.font-mont{font-family:'Montserrat',sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  .fita-topo{height:5px;background:linear-gradient(90deg,var(--dourado) 0%,#FFE873 50%,var(--dourado) 100%);}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    background:linear-gradient(135deg,#002244 0%,#003366 50%,#004488 100%);
+    color:#fff;
+    padding:34px clamp(20px,5vw,72px) 30px;
+    overflow:hidden;
+    border-bottom:4px solid var(--dourado);
+  }
+  .hero__accent{position:absolute;left:0;top:0;height:100%;width:7px;background:var(--dourado);}
+  .hero__watermark{
+    position:absolute;right:-24px;bottom:-64px;font-size:330px;line-height:0;
+    color:#fff;opacity:.05;pointer-events:none;z-index:0;
+  }
+  .hero__inner{position:relative;z-index:1;max-width:1120px;margin:0 auto;}
+  .hero__topo{display:flex;align-items:center;gap:16px;margin-bottom:22px;flex-wrap:wrap;}
+  .hero__logo{height:46px;width:auto;}
+  .hero__org{border-left:1px solid rgba(255,255,255,.25);padding-left:16px;}
+  .hero__org b{display:block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#cfe0f5;}
+  .hero__org span{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#9db8da;}
+  .hero__sel{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .hero__sel .traco{width:40px;height:3px;background:var(--dourado);}
+  .hero__sel span{font-size:.82rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:#bcd3f0;}
+  .hero__titulo{margin:0;line-height:1.1;}
+  .hero__titulo .l1{display:block;font-size:clamp(2rem,5.4vw,3.4rem);font-weight:900;color:var(--dourado);letter-spacing:-.02em;}
+  .hero__titulo .l2{display:block;font-size:clamp(1.02rem,2.1vw,1.42rem);font-weight:700;color:#dce8f7;margin-top:.24em;}
+  .hero__sub{font-size:clamp(.94rem,1.9vw,1.08rem);font-weight:600;color:#bcd3f0;margin:12px 0 0;}
+
+  .hero__metas{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+  .meta{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+        border-radius:999px;padding:7px 15px;font-size:.86rem;color:#e8f0fb;font-weight:600;}
+  .meta i{color:var(--dourado);}
+
+  .contagem{display:inline-flex;align-items:center;gap:10px;margin-top:20px;background:var(--dourado);color:#00274d;
+            border-radius:11px;padding:9px 17px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.92rem;
+            box-shadow:0 6px 18px -8px rgba(0,0,0,.5);}
+  .contagem i{font-size:.95rem;}
+  .contagem--ativo{background:#16A34A;color:#fff;}
+  .contagem--fim{background:rgba(255,255,255,.14);color:#dce8f7;border:1px solid rgba(255,255,255,.22);box-shadow:none;}
+
+  .stats{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px;}
+  .stat{
+    flex:1 1 150px;min-width:140px;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:14px;padding:16px 18px;
+    backdrop-filter:blur(4px);
+  }
+  .stat__num{font-family:'Montserrat';font-size:1.9rem;font-weight:800;color:var(--dourado);line-height:1;}
+  .stat__lbl{display:block;margin-top:6px;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#cfe0f5;font-weight:600;}
+
+  /* ===== STICKY TOOLBAR ===== */
+  .sticky{position:sticky;top:0;z-index:50;background:var(--branco);border-bottom:1px solid var(--borda);box-shadow:0 4px 16px -10px rgba(0,0,0,.25);}
+  .toolbar{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:11px clamp(16px,4vw,40px) 9px;}
+  .busca{flex:1 1 250px;display:flex;align-items:center;gap:10px;background:#f1f5f9;border:1px solid var(--borda);border-radius:10px;padding:9px 14px;transition:.15s;}
+  .busca:focus-within{border-color:var(--azul-vibrante);box-shadow:0 0 0 3px rgba(0,102,204,.12);background:#fff;}
+  .busca i{color:var(--tinta-fraca);}
+  .busca input{border:0;background:transparent;outline:0;width:100%;font-size:.95rem;font-family:inherit;color:var(--tinta);}
+  .seg{display:inline-flex;background:#f1f5f9;border:1px solid var(--borda);border-radius:10px;padding:3px;gap:2px;}
+  .seg button{
+    border:0;background:transparent;cursor:pointer;font-family:'Montserrat';font-weight:600;font-size:.82rem;
+    color:var(--tinta-suave);padding:7px 14px;border-radius:8px;transition:.15s;white-space:nowrap;
+  }
+  .seg button i{margin-right:7px;}
+  .seg button:hover{color:var(--azul-escuro);}
+  .seg button.ativo{background:var(--azul-escuro);color:#fff;box-shadow:var(--sombra-sm);}
+  .btn-icone{border:1px solid var(--borda);background:#fff;color:var(--tinta-suave);border-radius:10px;width:40px;height:40px;
+             display:inline-flex;align-items:center;justify-content:center;
+             cursor:pointer;font-size:.95rem;transition:.15s;flex:0 0 auto;}
+  .btn-icone:hover{background:var(--azul-escuro);color:#fff;border-color:var(--azul-escuro);}
+  .resultado{font-size:.82rem;color:var(--tinta-suave);white-space:nowrap;}
+  .resultado strong{color:var(--azul-escuro);font-family:'Montserrat';}
+
+  /* filtros por módulo */
+  .mod-nav{max-width:1120px;margin:0 auto;display:flex;gap:7px;overflow-x:auto;padding:0 clamp(16px,4vw,40px) 9px;scrollbar-width:thin;}
+  .fmod{
+    flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;cursor:pointer;white-space:nowrap;
+    border:1px solid var(--borda);background:#fff;border-radius:999px;padding:6px 13px;
+    font-family:'Montserrat',sans-serif;font-weight:600;font-size:.76rem;color:var(--tinta-suave);transition:.15s;
+  }
+  .fmod .ponto{width:9px;height:9px;border-radius:50%;background:var(--mc,#94a3b8);flex:0 0 auto;}
+  .fmod:hover{border-color:var(--mc,var(--azul-vibrante));color:var(--azul-escuro);}
+  .fmod.ativo{background:var(--mc,var(--azul-escuro));border-color:var(--mc,var(--azul-escuro));color:#fff;box-shadow:var(--sombra-sm);}
+  .fmod.ativo .ponto{background:#fff;}
+  .fmod .qtd{font-size:.7rem;opacity:.75;font-weight:700;}
+
+  /* navegação por dia */
+  .dia-nav{max-width:1120px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding:0 clamp(16px,4vw,40px) 11px;scrollbar-width:thin;}
+  .chip{
+    flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    min-width:56px;padding:6px 11px;border-radius:10px;border:1px solid var(--borda);background:#fff;
+    cursor:pointer;transition:.15s;line-height:1.1;
+  }
+  .chip small{font-size:.56rem;text-transform:uppercase;letter-spacing:.1em;color:var(--azul-vibrante);font-weight:800;}
+  .chip b{font-family:'Montserrat';font-size:1.02rem;font-weight:800;color:var(--azul-escuro);}
+  .chip span{font-size:.62rem;text-transform:uppercase;letter-spacing:.05em;color:var(--tinta-fraca);font-weight:600;margin-top:1px;}
+  .chip:hover{border-color:var(--azul-vibrante);transform:translateY(-1px);}
+  .chip.ativo{background:var(--azul-escuro);border-color:var(--azul-escuro);}
+  .chip.ativo small{color:var(--dourado);}
+  .chip.ativo b{color:var(--dourado);}
+  .chip.ativo span{color:#cfe0f5;}
+  .chip.vazio{opacity:.32;pointer-events:none;}
+  .chip.hoje{box-shadow:0 0 0 2px var(--dourado);}
+
+  /* ===== CONTEÚDO ===== */
+  .wrap{max-width:1120px;margin:0 auto;padding:30px clamp(16px,4vw,40px) 60px;}
+  .oculto{display:none!important;}
+
+  .dia{scroll-margin-top:var(--topo-sticky);margin-bottom:34px;}
+  .dia__cab{display:flex;align-items:center;gap:18px;margin-bottom:16px;flex-wrap:wrap;}
+  .dia__medalhao{
+    flex:0 0 auto;width:78px;height:78px;border-radius:18px;
+    background:linear-gradient(140deg,var(--azul-escuro),var(--azul-vibrante));
+    display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;
+    box-shadow:var(--sombra);border-bottom:3px solid var(--dourado);
+  }
+  .dia__num{font-family:'Montserrat';font-size:2rem;font-weight:900;line-height:1;}
+  .dia__mes{font-size:.66rem;font-weight:700;letter-spacing:.16em;margin-top:2px;color:var(--dourado);}
+  .dia__meta{flex:1 1 260px;min-width:0;}
+  .dia__ordinal{display:inline-block;font-family:'Montserrat';font-size:.66rem;font-weight:800;letter-spacing:.14em;
+                text-transform:uppercase;color:#fff;background:var(--azul-vibrante);border-radius:5px;padding:2px 8px;margin-bottom:5px;}
+  .dia__weekday{margin:0;font-size:1.3rem;font-weight:800;color:var(--azul-escuro);}
+  .dia__data{margin:2px 0 7px;font-size:.86rem;color:var(--tinta-suave);}
+  .dia__resumo{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--tinta-suave);font-weight:600;}
+  .dia__resumo i{color:var(--azul-vibrante);margin-right:5px;}
+  .dia__mods{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;justify-content:flex-end;max-width:340px;}
+  .pill{
+    display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 12px;cursor:pointer;
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:.72rem;
+    background:var(--mbg);color:var(--mc);border:1px solid var(--mbd);transition:.15s;
+  }
+  .pill:hover{background:var(--mc);color:#fff;}
+
+  .dia__lista{display:flex;flex-direction:column;gap:11px;border-left:2px dashed var(--azul-borda);margin-left:38px;padding-left:34px;position:relative;}
+
+  /* ===== PAUSAS ===== */
+  .pausa{
+    display:flex;align-items:center;gap:11px;position:relative;
+    font-family:'Montserrat',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--tinta-fraca);background:repeating-linear-gradient(135deg,#fff,#fff 8px,#f8fafc 8px,#f8fafc 16px);
+    border:1px dashed #cbd5e1;border-radius:10px;padding:7px 15px;
+  }
+  .pausa i{color:#cbd5e1;font-size:.9rem;}
+  .pausa__h{margin-left:auto;letter-spacing:.06em;font-weight:600;text-transform:none;font-size:.76rem;color:var(--tinta-fraca);}
+  .pausa::before{
+    content:"";position:absolute;left:-41.5px;top:50%;transform:translateY(-50%);width:9px;height:9px;border-radius:50%;
+    background:#fff;border:2px solid #cbd5e1;
+  }
+
+  /* ===== CARD ATIVIDADE ===== */
+  .ativ{
+    position:relative;display:flex;align-items:stretch;background:#fff;border:1px solid var(--borda);
+    border-radius:14px;box-shadow:var(--sombra-sm);overflow:hidden;
+    border-left:5px solid var(--mc,var(--azul-vibrante));
+    transition:opacity .5s ease,transform .5s ease,box-shadow .2s,filter .3s ease;
+  }
+  html.js .ativ{opacity:0;transform:translateY(14px);}
+  html.js .ativ.vis{opacity:1;transform:none;}
+  .ativ:hover{box-shadow:var(--sombra);transform:translateY(-2px);}
+  .ativ::before{
+    content:"";position:absolute;left:-44.5px;top:28px;width:13px;height:13px;border-radius:50%;
+    background:var(--mc);border:3px solid #fff;box-shadow:0 0 0 2px var(--mbd);
+  }
+  .ativ__hora{
+    flex:0 0 100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+    padding:14px 8px;background:var(--mbg);border-right:1px solid var(--borda);
+  }
+  .ativ__inicio{font-family:'Montserrat';font-weight:800;font-size:1.16rem;color:var(--mc);}
+  .ativ__fim{font-size:.78rem;color:var(--tinta-suave);font-weight:600;opacity:.85;}
+  .ativ__dur{margin-top:4px;font-size:.66rem;font-weight:700;letter-spacing:.04em;color:var(--tinta-suave);background:#fff;border:1px solid var(--borda);border-radius:999px;padding:2px 8px;}
+
+  .ativ__corpo{flex:1 1 auto;min-width:0;display:flex;align-items:flex-start;gap:14px;padding:14px 16px;}
+  .ativ__icone{position:relative;flex:0 0 auto;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;background:var(--mbg);color:var(--mc);margin-top:2px;}
+  .ativ__check{
+    position:absolute;right:-5px;bottom:-5px;width:20px;height:20px;border-radius:50%;
+    background:#16A34A;color:#fff;font-size:.62rem;display:flex;align-items:center;justify-content:center;
+    border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3);
+  }
+  .ativ__txt{min-width:0;flex:1 1 auto;}
+  .ativ__top{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:3px;}
+  .ativ__mod{flex:0 0 auto;font-family:'Montserrat';font-weight:800;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--mc);border-radius:5px;padding:3px 8px;}
+  .ativ__titulo{margin:0;font-size:1.02rem;font-weight:700;color:var(--azul-escuro);line-height:1.3;}
+  .ativ__pessoas{margin:6px 0 0;font-size:.86rem;color:var(--tinta-suave);}
+  .ativ__pessoas i{color:var(--mc);margin-right:7px;}
+
+  /* detalhe expansível (painel de debates) */
+  .ativ__mais{
+    margin-top:9px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+    background:var(--mbg);border:1px solid var(--mbd);color:var(--mc);border-radius:999px;padding:5px 13px;
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:.74rem;transition:.15s;
+  }
+  .ativ__mais:hover{background:var(--mc);color:#fff;}
+  .ativ__mais i{transition:transform .2s;}
+  .ativ__mais[aria-expanded="true"] i{transform:rotate(180deg);}
+  .ativ__detalhe{margin-top:12px;border-top:1px dashed var(--borda);padding-top:12px;}
+  .ativ__mediacao{margin:0 0 10px;font-size:.8rem;color:var(--tinta-suave);font-weight:600;}
+  .ativ__mediacao b{color:var(--azul-escuro);}
+  .pessoas{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:9px;}
+  .pessoa{background:#f8fafc;border:1px solid var(--borda);border-left:3px solid var(--mc);border-radius:9px;padding:9px 12px;}
+  .pessoa b{display:block;font-family:'Montserrat',sans-serif;font-size:.86rem;color:var(--azul-escuro);}
+  .pessoa span{display:block;font-size:.74rem;color:var(--tinta-suave);margin-top:2px;}
+  .pessoa em{display:block;font-size:.72rem;color:var(--tinta-fraca);font-style:normal;margin-top:2px;}
+
+  .ativ__tags{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-start;gap:8px;padding:14px 16px 14px 0;}
+  .tag{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:700;padding:5px 11px;border-radius:999px;white-space:nowrap;}
+  .tag--mod{background:var(--mbg);color:var(--mc);border:1px solid var(--mbd);}
+  .tag--ch{background:#f1f5f9;color:var(--tinta-suave);border:1px solid var(--borda);}
+  .tag--concluida{background:#DCFCE7;color:#15803D;border:1px solid #86EFAC;}
+  .tag--agora{background:#16A34A;color:#fff;border:1px solid #16A34A;}
+  .tag--agora .bolinha{width:8px;height:8px;border-radius:50%;background:#fff;animation:pulsa 1.4s infinite;}
+  @keyframes pulsa{0%,100%{opacity:1;}50%{opacity:.25;}}
+
+  .ativ--concluida{filter:opacity(.68);background:#F8FAFC;}
+  .ativ--concluida:hover{filter:opacity(1);}
+  .ativ--agora{box-shadow:0 0 0 3px rgba(22,163,74,.28),var(--sombra);}
+
+  /* ===== VISÃO POR MÓDULO ===== */
+  .modulos{display:flex;flex-direction:column;gap:20px;}
+  .mcard{background:#fff;border:1px solid var(--borda);border-left:5px solid var(--mc);border-radius:16px;box-shadow:var(--sombra-sm);overflow:hidden;scroll-margin-top:var(--topo-sticky);}
+  .mcard__cab{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--mbg);border-bottom:1px solid var(--mbd);flex-wrap:wrap;}
+  .mcard__ico{flex:0 0 auto;width:46px;height:46px;border-radius:13px;background:var(--mc);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+  .mcard__tit{flex:1 1 220px;min-width:0;}
+  .mcard__rot{display:block;font-family:'Montserrat';font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mc);}
+  .mcard__nome{margin:1px 0 0;font-size:1.14rem;font-weight:800;color:var(--azul-escuro);line-height:1.25;}
+  .mcard__meta{display:flex;gap:14px;font-size:.78rem;font-weight:700;color:var(--mc);flex-wrap:wrap;}
+  .mcard__lista{display:flex;flex-direction:column;}
+  .item{display:flex;align-items:flex-start;gap:14px;padding:13px 20px;border-top:1px solid var(--borda);}
+  .item:first-child{border-top:0;}
+  .item__ico{flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:var(--mbg);color:var(--mc);display:flex;align-items:center;justify-content:center;font-size:.9rem;margin-top:2px;}
+  .item__txt{flex:1 1 auto;min-width:0;}
+  .item__tit{margin:0;font-size:.96rem;font-weight:700;color:var(--azul-escuro);line-height:1.32;}
+  .item__pes{margin:4px 0 0;font-size:.83rem;color:var(--tinta-suave);}
+  .item__pes i{color:var(--mc);margin-right:6px;}
+  .item__dir{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+  .item__dias{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;}
+  .diab{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:700;color:var(--azul-escuro);
+        background:#fff;border:1px solid var(--borda);border-radius:999px;padding:3px 9px;cursor:pointer;transition:.15s;}
+  .diab:hover{background:var(--azul-escuro);color:#fff;border-color:var(--azul-escuro);}
+  @media(max-width:640px){
+    .item{flex-wrap:wrap;}
+    .item__dir{flex:1 1 100%;flex-direction:row;align-items:center;justify-content:flex-start;}
+  }
+
+  /* ===== SEÇÃO LOCAL ===== */
+  .titulo-secao{display:flex;align-items:center;gap:14px;margin:0 0 20px;}
+  .titulo-secao h2{margin:0;font-size:1.24rem;font-weight:800;color:var(--azul-escuro);}
+  .titulo-secao .traco{width:34px;height:3px;background:var(--dourado);flex:0 0 auto;}
+  .titulo-secao .linha{flex:1;height:1px;background:linear-gradient(90deg,var(--borda),transparent);}
+  .local{margin-top:56px;}
+  .local__grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+  .lcard{background:#fff;border:1px solid var(--borda);border-radius:14px;padding:20px;box-shadow:var(--sombra-sm);border-top:3px solid var(--azul-vibrante);}
+  .lcard--visita{border-top-color:#C2410C;}
+  .lcard h3{margin:0 0 10px;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--azul-vibrante);}
+  .lcard--visita h3{color:#C2410C;}
+  .lcard p{margin:0 0 4px;font-size:.92rem;color:var(--tinta);}
+  .lcard p.forte{font-weight:700;color:var(--azul-escuro);font-family:'Montserrat',sans-serif;}
+  .lcard p.suave{font-size:.85rem;color:var(--tinta-suave);}
+  .lcard .mapa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;
+               color:var(--azul-escuro);border:1px solid var(--azul-borda);border-radius:10px;padding:8px 13px;transition:.15s;}
+  .lcard .mapa:hover{background:var(--azul-escuro);color:#fff;border-color:var(--azul-escuro);}
+
+  /* vazio */
+  .vazio{text-align:center;padding:70px 20px;color:var(--tinta-fraca);}
+  .vazio i{font-size:3rem;color:var(--azul-borda);}
+  .vazio p{margin:16px 0 18px;font-size:1.05rem;}
+  .vazio button{font-family:'Montserrat';font-weight:600;background:var(--azul-escuro);color:#fff;border:0;border-radius:10px;padding:10px 20px;cursor:pointer;transition:.15s;}
+  .vazio button:hover{background:var(--azul-vibrante);}
+
+  /* ===== FOOTER ===== */
+  footer{background:#fff;border-top:1px solid var(--borda);}
+  .footer-accent{height:8px;background:var(--azul-escuro);} .footer-accent2{height:4px;background:var(--azul-vibrante);}
+  .footer-in{max-width:1120px;margin:0 auto;padding:28px clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;}
+  .footer-in img{height:38px;width:auto;}
+  .footer-ref{font-size:.8rem;color:var(--tinta-suave);text-align:right;}
+  .footer-ref b{color:var(--azul-escuro);}
+  .footer-legenda{display:flex;gap:14px;flex-wrap:wrap;font-size:.76rem;color:var(--tinta-suave);max-width:520px;}
+  .footer-legenda .leg{display:inline-flex;align-items:center;gap:7px;}
+  .leg .ponto{width:11px;height:11px;border-radius:50%;background:var(--mc);flex:0 0 auto;}
+
+  .topo-btn{position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;
+    background:var(--azul-escuro);color:#fff;font-size:1rem;box-shadow:var(--sombra);z-index:60;opacity:0;visibility:hidden;transition:.25s;}
+  .topo-btn.show{opacity:1;visibility:visible;}
+  .topo-btn:hover{background:var(--azul-vibrante);}
+
+  /* ===== RESPONSIVO ===== */
+  @media (max-width:760px){
+    .dia__mods{margin-left:0;justify-content:flex-start;max-width:none;flex:1 1 100%;}
+  }
+  @media (max-width:640px){
+    :root{--topo-sticky:210px;}
+    .ativ{flex-wrap:wrap;}
+    .ativ__hora{flex:0 0 100%;flex-direction:row;justify-content:flex-start;gap:10px;border-right:0;border-bottom:1px solid var(--borda);padding:9px 14px;}
+    .ativ__dur{margin-top:0;margin-left:auto;}
+    .ativ__corpo{flex:1 1 100%;}
+    .ativ__tags{flex:1 1 100%;flex-direction:row;align-items:center;justify-content:flex-start;flex-wrap:wrap;padding:0 16px 14px;}
+    .dia__lista{margin-left:8px;padding-left:22px;}
+    .ativ::before{left:-32.5px;} .pausa::before{left:-29.5px;}
+    .dia__cab{gap:12px;}
+    .dia__medalhao{width:64px;height:64px;}
+    .dia__num{font-size:1.6rem;}
+    .resultado{display:none;}
+    .pausa{font-size:.66rem;letter-spacing:.08em;}
+    .pausa__h{font-size:.7rem;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .ativ{opacity:1;transform:none;transition:none;}
+    .tag--agora .bolinha{animation:none;}
+  }
+
+  /* ===== IMPRESSÃO ===== */
+  @media print{
+    body{background:#fff;}
+    .sticky,.topo-btn,.hero__watermark,.ativ__mais,.contagem{display:none!important;}
+    .hero{border-bottom:3px solid var(--azul-escuro);}
+    .ativ{opacity:1!important;transform:none!important;box-shadow:none;border:1px solid #cbd5e1;break-inside:avoid;}
+    .dia,.mcard{break-inside:avoid;}
+    .ativ__detalhe{display:block!important;}
+    .wrap{padding-top:18px;}
+  }
+</style>
+</head>
+<body>
+<div class="fita-topo"></div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="hero__accent"></div>
+  <i class="fa-solid fa-ship hero__watermark" aria-hidden="true"></i>
+  <div class="hero__inner">
+    <div class="hero__topo">
+      <img class="hero__logo" src="Imagens/logo-antaq-branca.png" alt="ANTAQ — Agência Nacional de Transportes Aquaviários"/>
+      <div class="hero__org">
+        <b>Superintendência de Fiscalização e Coordenação das Unidades Regionais</b>
+        <span>SFC / ANTAQ</span>
+      </div>
+    </div>
+
+    <div class="hero__sel"><span class="traco"></span><span>Programação</span></div>
+    <h1 class="hero__titulo">
+      <span class="l1">ENAFIS 2026</span>
+      <span class="l2">Encontro Nacional de Fiscalização</span>
+    </h1>
+    <p class="hero__sub">Conteúdo programático, palestrantes e cronograma diário</p>
+
+    <div class="hero__metas">
+      <span class="meta"><i class="fa-regular fa-calendar-days"></i> <span id="periodo">21 a 25 de setembro de 2026</span></span>
+      <span class="meta"><i class="fa-solid fa-location-dot"></i> Curitiba/PR · URECB</span>
+      <span class="meta"><i class="fa-regular fa-clock"></i> 40 horas · Híbrido</span>
+      <span class="meta"><i class="fa-solid fa-building-columns"></i> SFC/ANTAQ</span>
+    </div>
+
+    <div id="contagem" class="contagem"></div>
+
+    <div class="stats">
+      <div class="stat"><span class="stat__num" id="st-dias">5</span><span class="stat__lbl">Dias de evento</span></div>
+      <div class="stat"><span class="stat__num" id="st-ch">40 h</span><span class="stat__lbl">Carga horária</span></div>
+      <div class="stat"><span class="stat__num" id="st-mod">5</span><span class="stat__lbl">Módulos</span></div>
+      <div class="stat"><span class="stat__num" id="st-ativ">27</span><span class="stat__lbl">Atividades</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== TOOLBAR STICKY ===================== -->
+<div class="sticky">
+  <div class="toolbar">
+    <label class="busca">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      <input id="busca" type="search" placeholder="Buscar tema, palestrante ou módulo…" aria-label="Buscar tema, palestrante ou módulo"/>
+    </label>
+    <div class="seg" role="group" aria-label="Alternar visão">
+      <button data-visao="cronograma" class="ativo"><i class="fa-regular fa-calendar-days" aria-hidden="true"></i>Cronograma</button>
+      <button data-visao="modulos"><i class="fa-solid fa-layer-group" aria-hidden="true"></i>Módulos</button>
+    </div>
+    <a class="btn-icone" href="Programacao-ENAFIS-2026.pdf" target="_blank" rel="noopener noreferrer" title="Baixar a programação oficial em PDF" aria-label="Baixar a programação oficial em PDF"><i class="fa-solid fa-file-pdf"></i></a>
+    <button class="btn-icone" id="btnImprimir" title="Imprimir ou salvar em PDF" aria-label="Imprimir ou salvar em PDF"><i class="fa-solid fa-print"></i></button>
+    <div class="resultado">Mostrando <strong id="cont">27 de 27</strong></div>
+  </div>
+  <nav class="mod-nav" id="modNav" aria-label="Filtrar por módulo"></nav>
+  <nav class="dia-nav" id="diaNav" aria-label="Ir para o dia"></nav>
+</div>
+
+<!-- ===================== CONTEÚDO ===================== -->
+<main class="wrap">
+  <div id="cronograma"></div>
+  <div id="modulos" class="modulos oculto"></div>
+
+  <section class="local" id="local">
+    <div class="titulo-secao"><span class="traco"></span><h2>Local e informações</h2><span class="linha"></span></div>
+    <div class="local__grade">
+      <div class="lcard">
+        <h3><i class="fa-solid fa-location-dot"></i> Sede do encontro</h3>
+        <p class="forte">Unidade Regional de Curitiba — URECB</p>
+        <p class="suave">Edifício do Banco Central do Brasil (BACEN)</p>
+        <p class="suave">Av. Cândido de Abreu, 344 — Centro Cívico · Curitiba/PR</p>
+        <a class="mapa" href="https://www.google.com/maps/search/?api=1&amp;query=Av.+C%C3%A2ndido+de+Abreu%2C+344+-+Centro+C%C3%ADvico%2C+Curitiba+-+PR" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-map-location-dot"></i> Abrir no mapa <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6"></i>
+        </a>
+      </div>
+      <div class="lcard lcard--visita">
+        <h3><i class="fa-solid fa-bus"></i> Visita técnica · 25/09</h3>
+        <p class="forte">Ponto de encontro: URECB</p>
+        <p class="suave">Saída às 07h00 para Paranaguá. Visitas ao Porto de Paranaguá (Portos do Paraná) e ao TCP, com retorno a Curitiba às 19h30.</p>
+      </div>
+      <div class="lcard">
+        <h3><i class="fa-solid fa-circle-info"></i> Realização</h3>
+        <p class="forte">SFC / ANTAQ</p>
+        <p class="suave">Abertura com painel de debates no dia 21, pela manhã.</p>
+        <p class="suave">Carga horária total de 40 horas, em formato híbrido.</p>
+        <a class="mapa" href="Programacao-ENAFIS-2026.pdf" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-pdf"></i> Programação oficial (PDF) <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem;opacity:.6"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="footer-accent"></div><div class="footer-accent2"></div>
+  <div class="footer-in">
+    <img src="Imagens/logo-antaq-azul.png" alt="ANTAQ"/>
+    <div class="footer-legenda" id="legenda"></div>
+    <div class="footer-ref">
+      <b>ENAFIS 2026</b> — Encontro Nacional de Fiscalização<br/>
+      SFC/ANTAQ · Curitiba/PR · 21 a 25 de setembro de 2026<br/>
+      Carga horária: 40 horas · Formato híbrido
+    </div>
+  </div>
+</footer>
+
+<button class="topo-btn" id="topoBtn" title="Voltar ao topo" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script>
+/* ===================== MÓDULOS ===================== */
+const MODULOS = {
+  abertura:{rot:"Abertura",   curto:"Abertura", nome:"Abertura e painel de debates",              icon:"fa-comments",         mc:"#B45309", mbg:"#FEF3C7", mbd:"#FCD34D"},
+  m1:      {rot:"Módulo 1",   curto:"M1",       nome:"Procedimentos de fiscalização",             icon:"fa-clipboard-check",  mc:"#0066CC", mbg:"#DBEAFE", mbd:"#93C5FD"},
+  m2:      {rot:"Módulo 2",   curto:"M2",       nome:"Fiscalização portuária",                    icon:"fa-anchor",           mc:"#0E7490", mbg:"#CFFAFE", mbd:"#67E8F9"},
+  m3:      {rot:"Módulo 3",   curto:"M3",       nome:"Navegação interior",                        icon:"fa-ship",             mc:"#047857", mbg:"#D1FAE5", mbd:"#6EE7B7"},
+  m4:      {rot:"Módulo 4",   curto:"M4",       nome:"Grupos especializados de fiscalização (GEFs)", icon:"fa-diagram-project", mc:"#6D28D9", mbg:"#EDE9FE", mbd:"#C4B5FD"},
+  m5:      {rot:"Módulo 5",   curto:"M5",       nome:"Apresentações institucionais",              icon:"fa-building-columns", mc:"#BE185D", mbg:"#FCE7F3", mbd:"#F9A8D4"},
+  visita:  {rot:"Visita",     curto:"Visita",   nome:"Visita técnica",                            icon:"fa-bus",              mc:"#C2410C", mbg:"#FFEDD5", mbd:"#FDBA74"},
+  inst:    {rot:"Institucional", curto:"Inst.", nome:"Abertura e encerramento",     icon:"fa-flag",             mc:"#475569", mbg:"#F1F5F9", mbd:"#CBD5E1"},
+};
+const ORDEM_MOD = ["abertura","m1","m2","m3","m4","m5","visita","inst"];
+const CARGA_OFICIAL = "40 h";
+
+/* ===================== PROGRAMAÇÃO ===================== */
+const PROGRAMA = [
+  /* ---------- DIA 1 · segunda-feira, 21/09 ---------- */
+  {data:"2026-09-21", ini:"08:00", fim:"08:30", mod:"inst",     icon:"fa-hands-clapping",  titulo:"Boas-vindas"},
+  {data:"2026-09-21", ini:"08:30", fim:"08:45", mod:"inst",     icon:"fa-flag",            titulo:"Abertura SFC", pessoas:["Fábio Fonseca","Alexandre Florambel"]},
+  {data:"2026-09-21", ini:"08:45", fim:"09:15", mod:"inst",     icon:"fa-user-tie",        titulo:"Apresentação do Diretor-Geral da ANTAQ", pessoas:["Frederico Dias"]},
+  {data:"2026-09-21", ini:"09:15", fim:"10:00", mod:"abertura", icon:"fa-gavel",           titulo:"Apresentação do Juiz de Direito", pessoas:["Frederico Messias"], obs:"Magistrado de Vara de Direito Marítimo (TJSP)"},
+  {data:"2026-09-21", ini:"10:00", fim:"10:20", pausa:"intervalo"},
+  {data:"2026-09-21", ini:"10:20", fim:"12:00", mod:"abertura", icon:"fa-comments",        titulo:"Painel de debate: navegação marítima — logística de contêineres e Direito Marítimo",
+    pessoas:["Mediação: Flávia Araújo (GCOR/SFC)"],
+    detalhe:{
+      rotulo:"Ver debatedores",
+      mediacao:"Flávia Araújo (GCOR/SFC)",
+      pessoas:[
+        {nome:"Rafael Stein",      papel:"Representante do Terminal Portuário",        org:"TCP – Terminal de Contêineres de Paranaguá"},
+        {nome:"Paulo Puppo",       papel:"Representante dos Usuários",                 org:"ABINCI"},
+        {nome:"Fábio Lavor",       papel:"Representante dos Armadores",                org:"CENTRONAVE"},
+        {nome:"Hugo Nakayama",     papel:"Representante dos Agentes intermediários",   org:"RST Logystics"},
+        {nome:"Frederico Messias", papel:"Magistrado de Vara de Direito Marítimo",     org:"TJSP"}
+      ]
+    }},
+  {data:"2026-09-21", ini:"12:00", fim:"14:00", pausa:"almoco"},
+  {data:"2026-09-21", ini:"14:00", fim:"16:00", mod:"m1", icon:"fa-scale-balanced", titulo:"A Resolução Normativa nº 135/2026: impactos nos procedimentos de fiscalização e processos sancionadores", pessoas:["Flávia Pontilhão","Fábio Fonseca"]},
+  {data:"2026-09-21", ini:"16:00", fim:"16:20", pausa:"intervalo"},
+  {data:"2026-09-21", ini:"16:20", fim:"18:00", mod:"m1", icon:"fa-robot", titulo:"Inteligência Artificial na fiscalização: possibilidades, restrições e cuidados quanto à LGPD", pessoas:["Fábio Fonseca","Pedro Soares"]},
+
+  /* ---------- DIA 2 · terça-feira, 22/09 ---------- */
+  {data:"2026-09-22", ini:"08:00", fim:"08:30", mod:"inst", icon:"fa-hands-clapping", titulo:"Boas-vindas"},
+  {data:"2026-09-22", ini:"08:30", fim:"10:00", mod:"m2", icon:"fa-water", titulo:"Experiência da Portos do Paraná com a gestão de acesso aquaviário: limites operacionais, dragagem, sinalização e balizamento e competências da Autoridade Portuária", pessoas:["Portos do Paraná"]},
+  {data:"2026-09-22", ini:"10:00", fim:"10:20", pausa:"intervalo"},
+  {data:"2026-09-22", ini:"10:20", fim:"12:00", mod:"m1", icon:"fa-chart-column", titulo:"Utilização de Dados Abertos da ANTAQ para Análise Técnica", pessoas:["Pedro Soares"]},
+  {data:"2026-09-22", ini:"12:00", fim:"14:00", pausa:"almoco"},
+  {data:"2026-09-22", ini:"14:00", fim:"16:00", mod:"m3", icon:"fa-file-contract", titulo:"Novas normas afetas à navegação interior (outorga e direitos e deveres dos passageiros)", pessoas:["Samuel Sousa"]},
+  {data:"2026-09-22", ini:"16:00", fim:"16:20", pausa:"intervalo"},
+  {data:"2026-09-22", ini:"16:20", fim:"18:00", mod:"m2", icon:"fa-sitemap", titulo:"Estrutura de fiscalização das Autoridades Portuárias: panorama e desafios regionais na fiscalização temática", pessoas:["Thiago Bonetti"]},
+
+  /* ---------- DIA 3 · quarta-feira, 23/09 ---------- */
+  {data:"2026-09-23", ini:"08:00", fim:"08:30", mod:"inst", icon:"fa-hands-clapping", titulo:"Boas-vindas"},
+  {data:"2026-09-23", ini:"08:30", fim:"10:00", mod:"m2", icon:"fa-anchor", titulo:"Vports: desafios da fiscalização de uma concessão portuária", pessoas:["Igor Moura"]},
+  {data:"2026-09-23", ini:"10:00", fim:"10:20", pausa:"intervalo"},
+  {data:"2026-09-23", ini:"10:20", fim:"12:00", mod:"m4", icon:"fa-boxes-stacked", titulo:"GEF Contêineres: principais atividades e autocomposição", pessoas:["Luís Bender"]},
+  {data:"2026-09-23", ini:"12:00", fim:"14:00", pausa:"almoco"},
+  {data:"2026-09-23", ini:"14:00", fim:"16:00", mod:"m3", icon:"fa-ship", titulo:"Fiscalização operacional na navegação interior: diretrizes da SFC e experiências", pessoas:["Flávia Pontilhão","Cleydson Silva","Renan Santos"]},
+  {data:"2026-09-23", ini:"16:00", fim:"16:20", pausa:"intervalo"},
+  {data:"2026-09-23", ini:"16:20", fim:"18:00", mod:"m4", icon:"fa-money-check-dollar", titulo:"GEF Investimentos: rito atual e o Sistema SAI", pessoas:["Luiz Carlos"]},
+
+  /* ---------- DIA 4 · quinta-feira, 24/09 ---------- */
+  {data:"2026-09-24", ini:"08:00", fim:"08:30", mod:"inst", icon:"fa-hands-clapping", titulo:"Boas-vindas"},
+  {data:"2026-09-24", ini:"08:30", fim:"10:10", mod:"m5", icon:"fa-building-columns", titulo:"Apresentação Institucional Portos do Paraná: apresentação institucional, concessão do Canal de Acesso, estrutura de fiscalização e experiência com a delegação de competências", pessoas:["Portos do Paraná"]},
+  {data:"2026-09-24", ini:"10:10", fim:"10:30", pausa:"intervalo"},
+  {data:"2026-09-24", ini:"10:30", fim:"12:00", mod:"m5", icon:"fa-warehouse", titulo:"Apresentação Institucional TCP: apresentação institucional e temas relevantes relacionados à logística de contêineres", pessoas:["TCP — Terminal de Contêineres de Paranaguá"]},
+  {data:"2026-09-24", ini:"12:00", fim:"14:00", pausa:"almoco"},
+  {data:"2026-09-24", ini:"14:00", fim:"14:40", mod:"m1", icon:"fa-newspaper", titulo:"Produção jornalística da SFC: notícias e imagens", pessoas:["Rodrigo Duhau"]},
+  {data:"2026-09-24", ini:"14:40", fim:"16:40", mod:"m2", icon:"fa-file-pen", titulo:"Resolução 75/2022-ANTAQ: alterações efetuadas pela Resolução 127/2025-ANTAQ", pessoas:["Fábio Fonseca"]},
+  {data:"2026-09-24", ini:"16:40", fim:"17:00", pausa:"intervalo"},
+  {data:"2026-09-24", ini:"17:00", fim:"18:00", mod:"inst", icon:"fa-flag-checkered", titulo:"Encerramento"},
+
+  /* ---------- DIA 5 · sexta-feira, 25/09 ---------- */
+  {data:"2026-09-25", ini:"07:00", fim:"09:30", mod:"visita", icon:"fa-bus", titulo:"Deslocamento para Paranaguá", obs:"Ponto de encontro: URECB — Av. Cândido de Abreu, 344"},
+  {data:"2026-09-25", ini:"09:30", fim:"12:30", mod:"visita", icon:"fa-anchor", titulo:"Visita ao Porto de Paranaguá", pessoas:["Portos do Paraná"]},
+  {data:"2026-09-25", ini:"12:30", fim:"14:00", pausa:"almoco"},
+  {data:"2026-09-25", ini:"14:00", fim:"17:00", mod:"visita", icon:"fa-warehouse", titulo:"Visita ao TCP", pessoas:["TCP — Terminal de Contêineres de Paranaguá"]},
+  {data:"2026-09-25", ini:"17:00", fim:"19:30", mod:"visita", icon:"fa-bus", titulo:"Deslocamento para Curitiba"},
+];
+
+/* ===================== HELPER DOM (seguro: sem innerHTML) ===================== */
+function h(tag, attrs, ...kids){
+  const el=document.createElement(tag);
+  if(attrs) for(const k in attrs){
+    const v=attrs[k];
+    if(v==null) continue;
+    if(k==="class") el.className=v;
+    else if(k==="dataset") Object.assign(el.dataset,v);
+    else if(k.startsWith("on")) el.addEventListener(k.slice(2).toLowerCase(),v);
+    else el.setAttribute(k,v);
+  }
+  for(const kid of kids.flat()){
+    if(kid==null||kid===false) continue;
+    el.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+  }
+  return el;
+}
+const fa = cls => h("i",{class:cls,"aria-hidden":"true"});
+
+/* ===================== HELPERS ===================== */
+const MESES  = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+const dObj   = iso => { const [y,m,d]=iso.split("-").map(Number); return new Date(y,m-1,d); };
+const pad    = n => String(n).padStart(2,"0");
+const cap    = s => s.charAt(0).toUpperCase()+s.slice(1);
+const norm   = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+const hhmm   = t => t.replace(":","h");
+const minutos= t => { const [H,M]=t.split(":").map(Number); return H*60+M; };
+const durMin = a => minutos(a.fim)-minutos(a.ini);
+function fmtDur(m){
+  const H=Math.floor(m/60), M=m%60;
+  if(H===0) return M+"min";
+  if(M===0) return H+"h";
+  return H+"h"+pad(M);
+}
+const estilo = m => `--mc:${m.mc};--mbg:${m.mbg};--mbd:${m.mbd}`;
+const ehPausa = a => !!a.pausa;
+const SESSOES = PROGRAMA.filter(a=>!ehPausa(a));
+
+/* status temporal (relógio do navegador) */
+let AGORA_OVERRIDE = null;   /* debug: window.__simularAgora("2026-09-23T10:40") */
+const agora   = () => AGORA_OVERRIDE || new Date();
+const emData  = (iso,t) => { const d=dObj(iso); const [H,M]=t.split(":").map(Number); d.setHours(H,M,0,0); return d; };
+const iniDate = a => emData(a.data,a.ini);
+const fimDate = a => emData(a.data,a.fim);
+const concluida  = a => agora() > fimDate(a);
+const acontecendo= a => agora() >= iniDate(a) && agora() <= fimDate(a);
+
+function agrupaPorDia(lista){
+  const mapa=new Map();
+  for(const a of lista){ if(!mapa.has(a.data)) mapa.set(a.data,[]); mapa.get(a.data).push(a); }
+  return [...mapa.entries()].sort((a,b)=>a[0].localeCompare(b[0]))
+    .map(([iso,itens])=>({iso, itens: itens.slice().sort((x,y)=>x.ini.localeCompare(y.ini))}));
+}
+const DIAS_TODOS = agrupaPorDia(PROGRAMA);
+const NUM_DIA    = new Map(DIAS_TODOS.map((d,i)=>[d.iso,i+1]));
+const isoHoje    = () => { const d=agora(); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; };
+
+/* ===================== HERO: estatísticas e contagem ===================== */
+(function preencheHero(){
+  const a=dObj(DIAS_TODOS[0].iso), b=dObj(DIAS_TODOS[DIAS_TODOS.length-1].iso);
+  const mesA=a.toLocaleDateString("pt-BR",{month:"long"}), mesB=b.toLocaleDateString("pt-BR",{month:"long"});
+  document.getElementById("periodo").textContent = mesA===mesB
+    ? `${a.getDate()} a ${b.getDate()} de ${mesA} de ${b.getFullYear()}`
+    : `${a.getDate()} de ${mesA} a ${b.getDate()} de ${mesB} de ${b.getFullYear()}`;
+
+  const totalMin = SESSOES.reduce((s,x)=>s+durMin(x),0);
+  const stCh = document.getElementById("st-ch");
+  stCh.textContent = CARGA_OFICIAL;
+  stCh.setAttribute("title",`Carga horária oficial: 40 horas. Tempo programado nesta agenda: ${fmtDur(totalMin)}.`);
+  document.getElementById("st-dias").textContent = DIAS_TODOS.length;
+  document.getElementById("st-mod").textContent  = new Set(SESSOES.map(s=>s.mod).filter(m=>/^m\d$/.test(m))).size;
+  document.getElementById("st-ativ").textContent = SESSOES.length;
+})();
+
+function atualizaContagem(){
+  const el=document.getElementById("contagem");
+  const inicio=iniDate(DIAS_TODOS[0].itens[0]);
+  const ultimoDia=DIAS_TODOS[DIAS_TODOS.length-1].itens;
+  const fim=fimDate(ultimoDia[ultimoDia.length-1]);
+  const ag=agora();
+  el.className="contagem";
+  el.replaceChildren();
+  if(ag<inicio){
+    const dias=Math.ceil((inicio-ag)/86400000);
+    el.append(fa("fa-solid fa-hourglass-half"),
+      dias===1 ? "Falta 1 dia para o ENAFIS 2026" : `Faltam ${dias} dias para o ENAFIS 2026`);
+  }else if(ag<=fim){
+    el.classList.add("contagem--ativo");
+    const iso=isoHoje(), n=NUM_DIA.get(iso);
+    el.append(fa("fa-solid fa-circle-dot"),
+      n ? `Em andamento · Dia ${n} de ${DIAS_TODOS.length}` : "ENAFIS 2026 em andamento");
+  }else{
+    el.classList.add("contagem--fim");
+    el.append(fa("fa-solid fa-flag-checkered"),"ENAFIS 2026 encerrado");
+  }
+}
+
+/* ===================== NAVEGAÇÃO (filtros de módulo e chips de dia) ===================== */
+let termoBusca="", modAtivo="todos", visao="cronograma";
+
+(function montaModNav(){
+  const nav=document.getElementById("modNav");
+  const btns=[h("button",{class:"fmod ativo",dataset:{mod:"todos"},type:"button"},
+                h("span",{class:"ponto"}),"Todos",h("span",{class:"qtd"},SESSOES.length))];
+  for(const k of ORDEM_MOD){
+    const m=MODULOS[k], n=SESSOES.filter(s=>s.mod===k).length;
+    if(!n) continue;
+    btns.push(h("button",{class:"fmod",style:estilo(m),dataset:{mod:k},type:"button",title:m.nome},
+      h("span",{class:"ponto"}), m.rot,
+      h("span",{class:"qtd"},n)));
+  }
+  nav.replaceChildren(...btns);
+  nav.addEventListener("click",e=>{
+    const b=e.target.closest(".fmod"); if(!b) return;
+    aplicaModulo(b.dataset.mod);
+  });
+})();
+
+function aplicaModulo(k){
+  modAtivo=k;
+  document.querySelectorAll(".fmod").forEach(b=>b.classList.toggle("ativo",b.dataset.mod===k));
+  render();
+}
+
+(function montaChips(){
+  const nav=document.getElementById("diaNav");
+  const hoje=isoHoje();
+  const chips=DIAS_TODOS.map(dia=>{
+    const dt=dObj(dia.iso);
+    const wd=dt.toLocaleDateString("pt-BR",{weekday:"short"}).replace(".","");
+    return h("a",{class:"chip"+(dia.iso===hoje?" hoje":""),href:`#dia-${dia.iso}`,dataset:{iso:dia.iso},
+                  title:`Dia ${NUM_DIA.get(dia.iso)} — ${dt.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"})}`},
+      h("small",null,"Dia "+NUM_DIA.get(dia.iso)),
+      h("b",null,pad(dt.getDate())),
+      h("span",null,wd)
+    );
+  });
+  nav.replaceChildren(...chips);
+})();
+
+/* ===================== LEGENDA (rodapé) ===================== */
+(function montaLegenda(){
+  const el=document.getElementById("legenda");
+  el.replaceChildren(...ORDEM_MOD.filter(k=>SESSOES.some(s=>s.mod===k)).map(k=>{
+    const m=MODULOS[k];
+    return h("span",{class:"leg",style:estilo(m)}, h("span",{class:"ponto"}), m.nome);
+  }));
+})();
+
+/* ===================== FILTRO ===================== */
+function textoBusca(a){
+  const m=MODULOS[a.mod];
+  const det=a.detalhe ? [a.detalhe.mediacao,...a.detalhe.pessoas.map(p=>`${p.nome} ${p.papel} ${p.org}`)].join(" ") : "";
+  return [a.titulo,(a.pessoas||[]).join(" "),a.obs||"",m.rot,m.nome,m.curto,det].join(" ");
+}
+function filtra(){
+  const q=norm(termoBusca);
+  return SESSOES.filter(a=>{
+    if(modAtivo!=="todos" && a.mod!==modAtivo) return false;
+    if(q && !norm(textoBusca(a)).includes(q)) return false;
+    return true;
+  });
+}
+const semFiltro = () => modAtivo==="todos" && !termoBusca.trim();
+
+/* ===================== CARDS ===================== */
+function pausaNode(a){
+  const almoco=a.pausa==="almoco";
+  return h("div",{class:"pausa"},
+    fa(almoco?"fa-solid fa-utensils":"fa-solid fa-mug-hot"),
+    almoco ? "Almoço" : `Intervalo · ${fmtDur(durMin(a))}`,
+    h("span",{class:"pausa__h"}, `${hhmm(a.ini)} – ${hhmm(a.fim)}`)
+  );
+}
+
+function detalheNode(a,m){
+  const d=a.detalhe;
+  const caixa=h("div",{class:"ativ__detalhe",hidden:"hidden"},
+    h("p",{class:"ativ__mediacao"}, fa("fa-solid fa-microphone-lines"), " Mediação: ", h("b",null,d.mediacao)),
+    h("div",{class:"pessoas"}, ...d.pessoas.map(p=>h("div",{class:"pessoa"},
+      h("b",null,p.nome), h("span",null,p.papel), h("em",null,p.org)
+    )))
+  );
+  const btn=h("button",{class:"ativ__mais",type:"button","aria-expanded":"false"},
+    fa("fa-solid fa-chevron-down"), d.rotulo+" ("+d.pessoas.length+")");
+  btn.addEventListener("click",()=>{
+    const aberto=btn.getAttribute("aria-expanded")==="true";
+    btn.setAttribute("aria-expanded",String(!aberto));
+    caixa.hidden=aberto;
+  });
+  return [btn,caixa];
+}
+
+function ativNode(a){
+  const m=MODULOS[a.mod];
+  const fim=concluida(a), ag=acontecendo(a);
+  const icone=h("div",{class:"ativ__icone"}, fa(`fa-solid ${a.icon}`));
+  if(fim) icone.append(h("span",{class:"ativ__check",title:"Atividade concluída"}, fa("fa-solid fa-check")));
+  return h("article",{class:"ativ"+(fim?" ativ--concluida":"")+(ag?" ativ--agora":""),style:estilo(m),
+                      dataset:{mod:a.mod}},
+    h("div",{class:"ativ__hora"},
+      h("span",{class:"ativ__inicio"}, hhmm(a.ini)),
+      h("span",{class:"ativ__fim"},   hhmm(a.fim)),
+      h("span",{class:"ativ__dur"},   fmtDur(durMin(a)))
+    ),
+    h("div",{class:"ativ__corpo"},
+      icone,
+      h("div",{class:"ativ__txt"},
+        h("div",{class:"ativ__top"},
+          h("span",{class:"ativ__mod"}, m.rot),
+          h("h3",{class:"ativ__titulo"}, a.titulo)
+        ),
+        a.pessoas ? h("p",{class:"ativ__pessoas"}, fa("fa-solid fa-microphone-lines"), a.pessoas.join(" · ")) : null,
+        a.obs ? h("p",{class:"ativ__pessoas"}, fa("fa-solid fa-circle-info"), a.obs) : null,
+        a.detalhe ? detalheNode(a,m) : null
+      )
+    ),
+    h("div",{class:"ativ__tags"},
+      ag  ? h("span",{class:"tag tag--agora"}, h("span",{class:"bolinha"})," Agora") : null,
+      fim ? h("span",{class:"tag tag--concluida"}, fa("fa-solid fa-circle-check")," Concluída") : null,
+      h("span",{class:"tag tag--mod"}, fa(`fa-solid ${m.icon}`), " "+m.nome),
+      h("span",{class:"tag tag--ch"}, fmtDur(durMin(a)))
+    )
+  );
+}
+
+function diaNode(dia){
+  const dt=dObj(dia.iso);
+  const sess=dia.itens.filter(a=>!ehPausa(a));
+  const totalMin=sess.reduce((s,a)=>s+durMin(a),0);
+  const mods=[...new Set(sess.map(a=>a.mod))].sort((x,y)=>ORDEM_MOD.indexOf(x)-ORDEM_MOD.indexOf(y));
+  return h("section",{class:"dia",id:`dia-${dia.iso}`},
+    h("header",{class:"dia__cab"},
+      h("div",{class:"dia__medalhao"},
+        h("span",{class:"dia__num"}, pad(dt.getDate())),
+        h("span",{class:"dia__mes"}, MESES[dt.getMonth()].toUpperCase())
+      ),
+      h("div",{class:"dia__meta"},
+        h("span",{class:"dia__ordinal"}, "Dia "+NUM_DIA.get(dia.iso)),
+        h("h2",{class:"dia__weekday"}, cap(dt.toLocaleDateString("pt-BR",{weekday:"long"}))),
+        h("p",{class:"dia__data"}, `${dt.getDate()} de ${dt.toLocaleDateString("pt-BR",{month:"long"})} de ${dt.getFullYear()}`),
+        h("div",{class:"dia__resumo"},
+          h("span",null, fa("fa-solid fa-list-check"), `${sess.length} ${sess.length>1?"atividades":"atividade"}`),
+          h("span",null, fa("fa-regular fa-clock"), fmtDur(totalMin)),
+          h("span",null, fa("fa-solid fa-arrow-right-long"), `${hhmm(dia.itens[0].ini)} – ${hhmm(dia.itens[dia.itens.length-1].fim)}`)
+        )
+      ),
+      h("div",{class:"dia__mods"}, ...mods.map(k=>{
+        const m=MODULOS[k];
+        return h("button",{class:"pill",style:estilo(m),type:"button",title:"Filtrar por "+m.nome,
+                           onClick:()=>aplicaModulo(k)},
+          fa(`fa-solid ${m.icon}`), /^Módulo/.test(m.rot) ? `${m.rot} · ${m.nome}` : m.nome);
+      }))
+    ),
+    h("div",{class:"dia__lista"}, ...dia.itens.map(a=>ehPausa(a)?pausaNode(a):ativNode(a)))
+  );
+}
+
+/* ===================== VISÃO POR MÓDULO ===================== */
+function mcardNode(k,lista){
+  const m=MODULOS[k];
+  /* agrupa títulos repetidos (ex.: "Boas-vindas" em todos os dias) */
+  const grupos=new Map();
+  for(const a of lista){
+    if(!grupos.has(a.titulo)) grupos.set(a.titulo,{ref:a,itens:[]});
+    grupos.get(a.titulo).itens.push(a);
+  }
+  const totalMin=lista.reduce((s,a)=>s+durMin(a),0);
+  return h("section",{class:"mcard",id:`mod-${k}`,style:estilo(m)},
+    h("header",{class:"mcard__cab"},
+      h("div",{class:"mcard__ico"}, fa(`fa-solid ${m.icon}`)),
+      h("div",{class:"mcard__tit"},
+        h("span",{class:"mcard__rot"}, m.rot),
+        h("h2",{class:"mcard__nome"}, m.nome)
+      ),
+      h("div",{class:"mcard__meta"},
+        h("span",null, fa("fa-solid fa-list-check"), " "+grupos.size+(grupos.size>1?" temas":" tema")),
+        h("span",null, fa("fa-regular fa-clock"), " "+fmtDur(totalMin))
+      )
+    ),
+    h("div",{class:"mcard__lista"}, ...[...grupos.values()].map(g=>{
+      const a=g.ref;
+      const min=g.itens.reduce((s,x)=>s+durMin(x),0);
+      return h("div",{class:"item"},
+        h("div",{class:"item__ico"}, fa(`fa-solid ${a.icon}`)),
+        h("div",{class:"item__txt"},
+          h("h3",{class:"item__tit"}, a.titulo),
+          a.pessoas ? h("p",{class:"item__pes"}, fa("fa-solid fa-microphone-lines"), a.pessoas.join(" · ")) : null,
+          a.obs ? h("p",{class:"item__pes"}, fa("fa-solid fa-circle-info"), a.obs) : null
+        ),
+        h("div",{class:"item__dir"},
+          h("span",{class:"tag tag--ch"}, fmtDur(min)),
+          h("div",{class:"item__dias"}, ...g.itens.map(x=>{
+            const dt=dObj(x.data);
+            return h("a",{class:"diab",href:`#dia-${x.data}`,title:`Dia ${NUM_DIA.get(x.data)} — ${hhmm(x.ini)} às ${hhmm(x.fim)}`,
+                          onClick:()=>trocaVisao("cronograma")},
+              fa("fa-regular fa-calendar-days"), `${pad(dt.getDate())}/${pad(dt.getMonth()+1)} · ${hhmm(x.ini)}`);
+          }))
+        )
+      );
+    }))
+  );
+}
+
+function vazioNode(){
+  return h("div",{class:"vazio"},
+    fa("fa-regular fa-calendar-xmark"),
+    h("p",null,"Nenhuma atividade encontrada com os filtros atuais."),
+    h("button",{type:"button",onClick:limparFiltros},"Limpar filtros")
+  );
+}
+
+/* ===================== RENDER ===================== */
+const elCrono=document.getElementById("cronograma");
+const elMods =document.getElementById("modulos");
+const elCont =document.getElementById("cont");
+const elDiaNav=document.getElementById("diaNav");
+
+function render(){
+  const lista=filtra();
+  const mostraPausas=semFiltro();
+
+  /* --- cronograma --- */
+  const itens = mostraPausas ? PROGRAMA.filter(a=>ehPausa(a)||lista.includes(a)) : lista;
+  const dias=agrupaPorDia(itens).filter(d=>d.itens.some(a=>!ehPausa(a)));
+  elCrono.replaceChildren(...(dias.length ? dias.map(diaNode) : [vazioNode()]));
+
+  /* --- módulos --- */
+  const cards=ORDEM_MOD.map(k=>{
+    const sub=lista.filter(a=>a.mod===k);
+    return sub.length ? mcardNode(k,sub) : null;
+  }).filter(Boolean);
+  elMods.replaceChildren(...(cards.length ? cards : [vazioNode()]));
+
+  /* --- estado da interface --- */
+  elCont.textContent=`${lista.length} de ${SESSOES.length}`;
+  const presentes=new Set(dias.map(d=>d.iso));
+  document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("vazio",!presentes.has(c.dataset.iso)));
+
+  elCrono.classList.toggle("oculto",visao!=="cronograma");
+  elMods.classList.toggle("oculto",visao!=="modulos");
+  elDiaNav.classList.toggle("oculto",visao!=="cronograma");
+
+  revelar(); espiar(); ajustaTopo();
+}
+
+function trocaVisao(v){
+  visao=v;
+  document.querySelectorAll(".seg button").forEach(b=>b.classList.toggle("ativo",b.dataset.visao===v));
+  render();
+}
+
+function limparFiltros(){
+  termoBusca=""; modAtivo="todos";
+  document.getElementById("busca").value="";
+  document.querySelectorAll(".fmod").forEach(b=>b.classList.toggle("ativo",b.dataset.mod==="todos"));
+  render();
+}
+
+/* ===================== INTERAÇÕES ===================== */
+document.getElementById("busca").addEventListener("input",e=>{termoBusca=e.target.value;render();});
+document.querySelectorAll(".seg button").forEach(btn=>{
+  btn.addEventListener("click",()=>trocaVisao(btn.dataset.visao));
+});
+document.getElementById("btnImprimir").addEventListener("click",()=>window.print());
+
+/* altura real da barra fixa -> deslocamento das âncoras */
+function ajustaTopo(){
+  const s=document.querySelector(".sticky");
+  document.documentElement.style.setProperty("--topo-sticky",(s.offsetHeight+14)+"px");
+}
+window.addEventListener("resize",ajustaTopo,{passive:true});
+
+/* animação de entrada */
+const reduz=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+let obsRevelar;
+function revelar(){
+  if(reduz){ document.querySelectorAll(".ativ").forEach(a=>a.classList.add("vis")); return; }
+  obsRevelar?.disconnect();
+  obsRevelar=new IntersectionObserver((entradas,obs)=>{
+    entradas.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("vis"); obs.unobserve(en.target);} });
+  },{threshold:.12});
+  document.querySelectorAll(".ativ").forEach(a=>obsRevelar.observe(a));
+}
+
+/* scrollspy — destaca o chip do dia visível */
+let obsEspiar;
+function espiar(){
+  obsEspiar?.disconnect();
+  const chips=document.querySelectorAll(".chip");
+  const topo=getComputedStyle(document.documentElement).getPropertyValue("--topo-sticky").trim();
+  obsEspiar=new IntersectionObserver(entradas=>{
+    entradas.forEach(en=>{
+      if(en.isIntersecting){
+        const id=en.target.id.replace("dia-","");
+        chips.forEach(c=>c.classList.toggle("ativo",c.dataset.iso===id));
+      }
+    });
+  },{rootMargin:`-${topo} 0px -55% 0px`});
+  document.querySelectorAll(".dia").forEach(d=>obsEspiar.observe(d));
+}
+
+/* voltar ao topo */
+const topoBtn=document.getElementById("topoBtn");
+topoBtn.addEventListener("click",()=>window.scrollTo({top:0,behavior:reduz?"auto":"smooth"}));
+window.addEventListener("scroll",()=>topoBtn.classList.toggle("show",window.scrollY>520),{passive:true});
+
+/* ===================== INICIA ===================== */
+document.documentElement.classList.add("js");
+/* pré-visualizar a página como em outra data/hora: window.__simularAgora("2026-09-23T10:40") */
+window.__simularAgora = s => { AGORA_OVERRIDE = s ? new Date(s) : null; atualizaContagem(); render(); };
+atualizaContagem();
+render();
+/* durante o evento, abre no dia corrente */
+(function abreNoDiaDeHoje(){
+  if(location.hash) return;
+  const iso=isoHoje();
+  if(!NUM_DIA.has(iso)) return;
+  const alvo=document.getElementById("dia-"+iso);
+  if(alvo) requestAnimationFrame(()=>alvo.scrollIntoView({behavior:"auto",block:"start"}));
+})();
+</script>
+</body>
+</html>
