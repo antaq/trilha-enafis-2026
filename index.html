@@ -86,24 +86,32 @@
   .btn-teams svg{display:block;flex:0 0 auto;}
   .btn-teams .seta{font-size:.72rem;opacity:.55;}
 
-  /* variante do hero: destaque sobre o fundo escuro */
+  /* a marca do Teams vira branca com o "T" recortado na cor do botão */
+  .btn-teams svg .recorte{fill:var(--vivo);}
+
+  /* variante do hero: vermelho de transmissão, o elemento mais forte do bloco */
   .btn-teams--hero{
-    background:#fff;color:var(--azul-escuro);padding:11px 18px;
-    box-shadow:0 8px 22px -10px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.7);
+    --vivo:#B91C1C;
+    background:var(--vivo);color:#fff;padding:12px 20px;
+    box-shadow:0 0 0 1px rgba(255,255,255,.22), 0 12px 26px -10px rgba(0,0,0,.75);
   }
   .btn-teams--hero .txt{display:flex;flex-direction:column;line-height:1.2;text-align:left;}
-  .btn-teams--hero b{font-size:.94rem;font-weight:800;}
-  .btn-teams--hero small{font-size:.72rem;font-weight:600;color:var(--tinta-suave);margin-top:2px;}
-  .btn-teams--hero:hover{transform:translateY(-2px);box-shadow:0 12px 26px -10px rgba(0,0,0,.7);border-color:#fff;}
+  .btn-teams--hero b{font-size:.96rem;font-weight:800;letter-spacing:.005em;}
+  .btn-teams--hero small{font-size:.72rem;font-weight:600;color:#FFE3E3;margin-top:2px;}
+  .btn-teams--hero:hover{--vivo:#991B1B;transform:translateY(-2px);
+    box-shadow:0 0 0 1px rgba(255,255,255,.35), 0 16px 30px -10px rgba(0,0,0,.8);}
   .btn-teams--hero:focus-visible{outline:3px solid var(--dourado);outline-offset:3px;}
 
   /* variante da barra fixa: só aparece quando a barra está grudada no topo */
   .btn-teams--barra{
-    background:#fff;color:#3F45A8;border:1px solid #C7CBF2;
-    padding:0 14px;height:40px;font-weight:700;font-size:.82rem;white-space:nowrap;flex:0 0 auto;
+    --vivo:#B91C1C;
+    background:var(--vivo);color:#fff;border:1px solid #991B1B;
+    padding:0 15px;height:40px;font-weight:700;font-size:.82rem;white-space:nowrap;flex:0 0 auto;
+    box-shadow:0 4px 12px -5px rgba(185,28,28,.8);
   }
-  .btn-teams--barra:hover{background:#EEF0FC;border-color:#5059C9;color:#2F3585;}
-  .btn-teams--barra:focus-visible{outline:3px solid rgba(80,89,201,.45);outline-offset:2px;}
+  .btn-teams--barra .seta{opacity:.7;}
+  .btn-teams--barra:hover{--vivo:#991B1B;border-color:#7F1D1D;box-shadow:0 6px 14px -5px rgba(153,27,27,.9);}
+  .btn-teams--barra:focus-visible{outline:3px solid rgba(185,28,28,.5);outline-offset:2px;}
   .toolbar .btn-teams--barra{display:none;}
   .sticky.fixada .toolbar .btn-teams--barra{display:inline-flex;animation:surge .22s ease both;}
   @keyframes surge{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
@@ -443,7 +451,7 @@
       <div id="contagem" class="contagem"></div>
       <a class="btn-teams btn-teams--hero" href="https://teams.microsoft.com/meet/223012699407232?p=MR9b9NvaTKl0pHHT3p" target="_blank" rel="noopener noreferrer"
          title="Entrar na transmissão do ENAFIS 2026 pelo Microsoft Teams (abre em nova aba)">
-        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><circle cx="17.6" cy="6.1" r="3.3" fill="#7B83EB"/><rect x="3" y="6" width="13" height="13" rx="2.6" fill="#5059C9"/><rect x="5.7" y="8.8" width="7.6" height="1.9" rx=".4" fill="#fff"/><rect x="8.55" y="8.8" width="1.9" height="6.6" rx=".4" fill="#fff"/></svg>
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><rect x="3" y="6" width="13" height="13" rx="2.6" fill="#fff"/><circle class="recorte" cx="17.6" cy="6.1" r="4.4"/><circle cx="17.6" cy="6.1" r="3.3" fill="#fff" opacity=".82"/><rect class="recorte" x="5.7" y="8.8" width="7.6" height="1.9" rx=".4"/><rect class="recorte" x="8.55" y="8.8" width="1.9" height="6.6" rx=".4"/></svg>
         <span class="txt">
           <b>Assistir pelo Teams</b>
           <small>Transmissão ao vivo · participação remota</small>
@@ -479,7 +487,7 @@
     <a class="btn-teams btn-teams--barra" href="https://teams.microsoft.com/meet/223012699407232?p=MR9b9NvaTKl0pHHT3p" target="_blank" rel="noopener noreferrer"
        title="Entrar na transmissão do ENAFIS 2026 pelo Microsoft Teams (abre em nova aba)"
        aria-label="Assistir ao vivo pelo Microsoft Teams (abre em nova aba)">
-      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="17.6" cy="6.1" r="3.3" fill="#7B83EB"/><rect x="3" y="6" width="13" height="13" rx="2.6" fill="#5059C9"/><rect x="5.7" y="8.8" width="7.6" height="1.9" rx=".4" fill="#fff"/><rect x="8.55" y="8.8" width="1.9" height="6.6" rx=".4" fill="#fff"/></svg>
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="6" width="13" height="13" rx="2.6" fill="#fff"/><circle class="recorte" cx="17.6" cy="6.1" r="4.4"/><circle cx="17.6" cy="6.1" r="3.3" fill="#fff" opacity=".82"/><rect class="recorte" x="5.7" y="8.8" width="7.6" height="1.9" rx=".4"/><rect class="recorte" x="8.55" y="8.8" width="1.9" height="6.6" rx=".4"/></svg>
       <span class="rotulo">Assistir ao vivo</span>
       <i class="fa-solid fa-arrow-up-right-from-square seta" aria-hidden="true"></i>
     </a>
