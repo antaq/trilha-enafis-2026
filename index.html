@@ -488,7 +488,7 @@ const MODULOS = {
   m4:      {rot:"Módulo 4",   curto:"M4",       nome:"Grupos especializados de fiscalização (GEFs)", icon:"fa-diagram-project", mc:"#6D28D9", mbg:"#EDE9FE", mbd:"#C4B5FD"},
   m5:      {rot:"Módulo 5",   curto:"M5",       nome:"Apresentações institucionais",              icon:"fa-building-columns", mc:"#BE185D", mbg:"#FCE7F3", mbd:"#F9A8D4"},
   visita:  {rot:"Visita",     curto:"Visita",   nome:"Visita técnica",                            icon:"fa-bus",              mc:"#C2410C", mbg:"#FFEDD5", mbd:"#FDBA74"},
-  inst:    {rot:"Institucional", curto:"Inst.", nome:"Abertura e encerramento",     icon:"fa-flag",             mc:"#475569", mbg:"#F1F5F9", mbd:"#CBD5E1"},
+  inst:    {rot:"Institucional", curto:"Inst.", nome:"Sessões institucionais",     icon:"fa-flag",             mc:"#475569", mbg:"#F1F5F9", mbd:"#CBD5E1"},
 };
 const ORDEM_MOD = ["abertura","m1","m2","m3","m4","m5","visita","inst"];
 const CARGA_OFICIAL = "40 h";
@@ -498,14 +498,13 @@ const PROGRAMA = [
   /* ---------- DIA 1 · segunda-feira, 21/09 ---------- */
   {data:"2026-09-21", ini:"08:00", fim:"08:30", mod:"inst",     icon:"fa-hands-clapping",  titulo:"Boas-vindas"},
   {data:"2026-09-21", ini:"08:30", fim:"08:45", mod:"inst",     icon:"fa-flag",            titulo:"Abertura SFC", pessoas:["Fábio Fonseca","Alexandre Florambel"]},
-  {data:"2026-09-21", ini:"08:45", fim:"09:15", mod:"inst",     icon:"fa-user-tie",        titulo:"Apresentação do Diretor-Geral da ANTAQ", pessoas:["Frederico Dias"]},
-  {data:"2026-09-21", ini:"09:15", fim:"10:00", mod:"abertura", icon:"fa-gavel",           titulo:"Apresentação do Juiz de Direito", pessoas:["Frederico Messias"], obs:"Magistrado de Vara de Direito Marítimo (TJSP)"},
-  {data:"2026-09-21", ini:"10:00", fim:"10:20", pausa:"intervalo"},
-  {data:"2026-09-21", ini:"10:20", fim:"12:00", mod:"abertura", icon:"fa-comments",        titulo:"Painel de debate: navegação marítima — logística de contêineres e Direito Marítimo",
-    pessoas:["Mediação: Flávia Araújo (GCOR/SFC)"],
+  {data:"2026-09-21", ini:"08:45", fim:"09:30", mod:"abertura", icon:"fa-gavel",           titulo:"Apresentação do Juiz de Direito", pessoas:["Frederico Messias"], obs:"Magistrado de Vara de Direito Marítimo (TJSP)"},
+  {data:"2026-09-21", ini:"09:30", fim:"09:50", pausa:"intervalo"},
+  {data:"2026-09-21", ini:"09:50", fim:"11:30", mod:"abertura", icon:"fa-comments",        titulo:"Painel de debate: navegação marítima — logística de contêineres e Direito Marítimo",
+    pessoas:["Mediação: Flávia Pontilhão (GCOR/SFC)"],
     detalhe:{
       rotulo:"Ver debatedores",
-      mediacao:"Flávia Araújo (GCOR/SFC)",
+      mediacao:"Flávia Pontilhão (GCOR/SFC)",
       pessoas:[
         {nome:"Rafael Stein",      papel:"Representante do Terminal Portuário",        org:"TCP – Terminal de Contêineres de Paranaguá"},
         {nome:"Paulo Puppo",       papel:"Representante dos Usuários",                 org:"ABINCI"},
@@ -514,10 +513,11 @@ const PROGRAMA = [
         {nome:"Frederico Messias", papel:"Magistrado de Vara de Direito Marítimo",     org:"TJSP"}
       ]
     }},
-  {data:"2026-09-21", ini:"12:00", fim:"14:00", pausa:"almoco"},
-  {data:"2026-09-21", ini:"14:00", fim:"16:00", mod:"m1", icon:"fa-scale-balanced", titulo:"A Resolução Normativa nº 135/2026: impactos nos procedimentos de fiscalização e processos sancionadores", pessoas:["Flávia Pontilhão","Fábio Fonseca"]},
-  {data:"2026-09-21", ini:"16:00", fim:"16:20", pausa:"intervalo"},
-  {data:"2026-09-21", ini:"16:20", fim:"18:00", mod:"m1", icon:"fa-robot", titulo:"Inteligência Artificial na fiscalização: possibilidades, restrições e cuidados quanto à LGPD", pessoas:["Fábio Fonseca","Pedro Soares"]},
+  {data:"2026-09-21", ini:"11:30", fim:"13:30", pausa:"almoco"},
+  {data:"2026-09-21", ini:"13:30", fim:"15:10", mod:"m1", icon:"fa-robot", titulo:"Inteligência Artificial na fiscalização: possibilidades, restrições e cuidados quanto à LGPD", pessoas:["Fábio Fonseca","Pedro Soares"]},
+  {data:"2026-09-21", ini:"15:10", fim:"15:30", pausa:"intervalo"},
+  {data:"2026-09-21", ini:"15:30", fim:"17:30", mod:"m1", icon:"fa-scale-balanced", titulo:"A Resolução Normativa nº 135/2026: impactos nos procedimentos de fiscalização e processos sancionadores", pessoas:["Flávia Pontilhão","Fábio Fonseca"]},
+  {data:"2026-09-21", ini:"17:30", fim:"18:00", mod:"inst", icon:"fa-user-tie", titulo:"Apresentação do Diretor-Geral", pessoas:["Frederico Dias"]},
 
   /* ---------- DIA 2 · terça-feira, 22/09 ---------- */
   {data:"2026-09-22", ini:"08:00", fim:"08:30", mod:"inst", icon:"fa-hands-clapping", titulo:"Boas-vindas"},
@@ -525,9 +525,10 @@ const PROGRAMA = [
   {data:"2026-09-22", ini:"10:00", fim:"10:20", pausa:"intervalo"},
   {data:"2026-09-22", ini:"10:20", fim:"12:00", mod:"m1", icon:"fa-chart-column", titulo:"Utilização de Dados Abertos da ANTAQ para Análise Técnica", pessoas:["Pedro Soares"]},
   {data:"2026-09-22", ini:"12:00", fim:"14:00", pausa:"almoco"},
-  {data:"2026-09-22", ini:"14:00", fim:"16:00", mod:"m3", icon:"fa-file-contract", titulo:"Novas normas afetas à navegação interior (outorga e direitos e deveres dos passageiros)", pessoas:["Samuel Sousa"]},
-  {data:"2026-09-22", ini:"16:00", fim:"16:20", pausa:"intervalo"},
-  {data:"2026-09-22", ini:"16:20", fim:"18:00", mod:"m2", icon:"fa-sitemap", titulo:"Estrutura de fiscalização das Autoridades Portuárias: panorama e desafios regionais na fiscalização temática", pessoas:["Thiago Bonetti"]},
+  {data:"2026-09-22", ini:"14:00", fim:"14:30", mod:"inst", icon:"fa-building", titulo:"Apresentação da SESGI", pessoas:["Cristina Castro"]},
+  {data:"2026-09-22", ini:"14:30", fim:"16:10", mod:"m4", icon:"fa-money-check-dollar", titulo:"GEF Investimentos: rito atual e o Sistema SAI", pessoas:["Luiz Carlos"]},
+  {data:"2026-09-22", ini:"16:10", fim:"16:30", pausa:"intervalo"},
+  {data:"2026-09-22", ini:"16:30", fim:"18:10", mod:"m2", icon:"fa-sitemap", titulo:"Estrutura de fiscalização das Autoridades Portuárias: panorama e desafios regionais na fiscalização temática", pessoas:["Thiago Bonetti"]},
 
   /* ---------- DIA 3 · quarta-feira, 23/09 ---------- */
   {data:"2026-09-23", ini:"08:00", fim:"08:30", mod:"inst", icon:"fa-hands-clapping", titulo:"Boas-vindas"},
@@ -535,9 +536,9 @@ const PROGRAMA = [
   {data:"2026-09-23", ini:"10:00", fim:"10:20", pausa:"intervalo"},
   {data:"2026-09-23", ini:"10:20", fim:"12:00", mod:"m4", icon:"fa-boxes-stacked", titulo:"GEF Contêineres: principais atividades e autocomposição", pessoas:["Luís Bender"]},
   {data:"2026-09-23", ini:"12:00", fim:"14:00", pausa:"almoco"},
-  {data:"2026-09-23", ini:"14:00", fim:"16:00", mod:"m3", icon:"fa-ship", titulo:"Fiscalização operacional na navegação interior: diretrizes da SFC e experiências", pessoas:["Flávia Pontilhão","Cleydson Silva","Renan Santos"]},
+  {data:"2026-09-23", ini:"14:00", fim:"16:00", mod:"m3", icon:"fa-file-contract", titulo:"Novas normas afetas à navegação interior (outorga e direitos e deveres dos passageiros)", pessoas:["Samuel Sousa"]},
   {data:"2026-09-23", ini:"16:00", fim:"16:20", pausa:"intervalo"},
-  {data:"2026-09-23", ini:"16:20", fim:"18:00", mod:"m4", icon:"fa-money-check-dollar", titulo:"GEF Investimentos: rito atual e o Sistema SAI", pessoas:["Luiz Carlos"]},
+  {data:"2026-09-23", ini:"16:20", fim:"18:20", mod:"m3", icon:"fa-ship", titulo:"Fiscalização operacional na navegação interior: diretrizes da SFC e experiências", pessoas:["Flávia Pontilhão","Cleydson Silva","Renan Santos"]},
 
   /* ---------- DIA 4 · quinta-feira, 24/09 ---------- */
   {data:"2026-09-24", ini:"08:00", fim:"08:30", mod:"inst", icon:"fa-hands-clapping", titulo:"Boas-vindas"},

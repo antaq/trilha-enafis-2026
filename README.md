@@ -7,7 +7,7 @@ Página da **programação** do **ENAFIS 2026 – Encontro Nacional de Fiscaliza
 ## Sobre
 
 - **Período:** 21 a 25 de setembro de 2026 · **Local:** Curitiba/PR — Unidade Regional de Curitiba (URECB)
-- **Carga horária:** 40 horas · formato híbrido · 5 módulos · 27 atividades
+- **Carga horária:** 40 horas · formato híbrido · 5 módulos · 28 atividades
 - Página única, estática e responsiva (HTML + CSS + JavaScript, sem build), com a identidade visual da ANTAQ
 - Construída a partir do template de [`TrilhaTecnico/index.html`](../../TrilhaTecnico/index.html)
 
@@ -61,4 +61,4 @@ Qualquer `git push` na `main` republica a página automaticamente.
 
 ---
 
-Fonte: [`Programacao-ENAFIS-2026.pdf`](Programacao-ENAFIS-2026.pdf) (SFC/ANTAQ, 08/09/2026)
+Fonte: [`Programacao-ENAFIS-2026.pdf`](Programacao-ENAFIS-2026.pdf) — programação atualizada pela SFC/ANTAQ em 16/09/2026.
