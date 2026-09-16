@@ -59,6 +59,18 @@ A pasta é autossuficiente (`index.html`, `Imagens/`, `favicon.ico`, `.nojekyll`
 
 Qualquer `git push` na `main` republica a página automaticamente.
 
+## Capa do link (Open Graph)
+
+Ao colar o endereço no WhatsApp, no Teams ou no LinkedIn, a prévia usa
+[`Imagens/og-enafis-2026.jpg`](Imagens/og-enafis-2026.jpg) (1200×630, ~112 KB), declarada nas metatags `og:*` do `index.html`.
+
+A imagem é gerada a partir de [`og-template.html`](og-template.html), que repete os dizeres do cabeçalho.
+Para regerá-la depois de mudar datas ou local: abra o molde numa janela de **1200×630** e exporte a viewport
+como JPEG em `Imagens/og-enafis-2026.jpg`.
+
+> O WhatsApp guarda a prévia em cache por URL. Depois de trocar a imagem, incremente o `?v=` nas
+> metatags `og:image`, `og:image:secure_url` e `twitter:image` para forçar a releitura.
+
 ---
 
 Fonte: [`Programacao-ENAFIS-2026.pdf`](Programacao-ENAFIS-2026.pdf) — programação atualizada pela SFC/ANTAQ em 16/09/2026.
