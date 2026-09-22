@@ -305,6 +305,16 @@
   .ativ__mais:hover{background:var(--mc);color:#fff;}
   .ativ__mais i{transition:transform .2s;}
   .ativ__mais[aria-expanded="true"] i{transform:rotate(180deg);}
+
+  /* link para os slides da apresentação */
+  .ativ__slides,.item__slides{
+    margin-top:9px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+    background:var(--mc);border:1px solid var(--mc);color:#fff;border-radius:999px;padding:5px 13px;
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:.74rem;transition:.15s;
+  }
+  .ativ__slides:hover,.item__slides:hover{background:var(--mbg);color:var(--mc);}
+  .ativ__slides i:last-child,.item__slides i:last-child{font-size:.66rem;opacity:.8;}
+  .slides__tam{font-weight:600;font-size:.68rem;opacity:.75;border-left:1px solid currentColor;padding-left:8px;margin-left:1px;}
   .ativ__detalhe{margin-top:12px;border-top:1px dashed var(--borda);padding-top:12px;}
   .ativ__mediacao{margin:0 0 10px;font-size:.8rem;color:var(--tinta-suave);font-weight:600;}
   .ativ__mediacao b{color:var(--azul-escuro);}
@@ -434,6 +444,9 @@
     .ativ{opacity:1!important;transform:none!important;box-shadow:none;border:1px solid #cbd5e1;break-inside:avoid;}
     .dia,.mcard{break-inside:avoid;}
     .ativ__detalhe{display:block!important;}
+    .ativ__slides,.item__slides{background:none!important;color:var(--azul-escuro)!important;border-color:#cbd5e1!important;}
+    .ativ__slides::after,.item__slides::after{content:" — " attr(href);font-weight:500;}
+    .ativ__slides i:last-child,.item__slides i:last-child{display:none;}
     .wrap{padding-top:18px;}
   }
 </style>
@@ -604,18 +617,22 @@ const PROGRAMA = [
       ]
     }},
   {data:"2026-09-21", ini:"11:30", fim:"13:30", pausa:"almoco"},
-  {data:"2026-09-21", ini:"13:30", fim:"15:10", mod:"m1", icon:"fa-robot", titulo:"Inteligência Artificial na fiscalização: possibilidades, restrições e cuidados quanto à LGPD", pessoas:["Fábio Fonseca","Pedro Soares"]},
+  {data:"2026-09-21", ini:"13:30", fim:"15:10", mod:"m1", icon:"fa-robot", titulo:"Inteligência Artificial na fiscalização: possibilidades, restrições e cuidados quanto à LGPD", pessoas:["Fábio Fonseca","Pedro Soares"],
+    slides:"https://antaq.github.io/apresentacao_ia_sfc/"},
   {data:"2026-09-21", ini:"15:10", fim:"15:30", pausa:"intervalo"},
-  {data:"2026-09-21", ini:"15:30", fim:"17:30", mod:"m1", icon:"fa-scale-balanced", titulo:"A Resolução Normativa nº 135/2026: impactos nos procedimentos de fiscalização e processos sancionadores", pessoas:["Flávia Pontilhão","Fábio Fonseca"]},
+  {data:"2026-09-21", ini:"15:30", fim:"17:30", mod:"m1", icon:"fa-scale-balanced", titulo:"A Resolução Normativa nº 135/2026: impactos nos procedimentos de fiscalização e processos sancionadores", pessoas:["Flávia Pontilhão","Fábio Fonseca"],
+    slides:"Apresentacoes/nova-resolucao-135-2026.pptx", slidesTam:"87 KB"},
   {data:"2026-09-21", ini:"17:30", fim:"18:00", mod:"inst", icon:"fa-user-tie", titulo:"Apresentação do Diretor-Geral", pessoas:["Frederico Dias"]},
 
   /* ---------- DIA 2 · terça-feira, 22/09 ---------- */
   {data:"2026-09-22", ini:"08:00", fim:"08:30", mod:"inst", icon:"fa-hands-clapping", titulo:"Boas-vindas"},
   {data:"2026-09-22", ini:"08:30", fim:"10:00", mod:"m2", icon:"fa-water", titulo:"Experiência da Portos do Paraná com a gestão de acesso aquaviário: limites operacionais, dragagem, sinalização e balizamento e competências da Autoridade Portuária", pessoas:["Portos do Paraná"]},
   {data:"2026-09-22", ini:"10:00", fim:"10:20", pausa:"intervalo"},
-  {data:"2026-09-22", ini:"10:20", fim:"12:00", mod:"m1", icon:"fa-chart-column", titulo:"Utilização de Dados Abertos da ANTAQ para Análise Técnica", pessoas:["Pedro Soares"]},
+  {data:"2026-09-22", ini:"10:20", fim:"12:00", mod:"m1", icon:"fa-chart-column", titulo:"Utilização de Dados Abertos da ANTAQ para Análise Técnica", pessoas:["Pedro Soares"],
+    slides:"https://antaq.github.io/apresentacao_dados_abertos/"},
   {data:"2026-09-22", ini:"12:00", fim:"14:00", pausa:"almoco"},
-  {data:"2026-09-22", ini:"14:00", fim:"14:30", mod:"inst", icon:"fa-building", titulo:"Apresentação da SESGI", pessoas:["Cristina Castro"]},
+  {data:"2026-09-22", ini:"14:00", fim:"14:30", mod:"inst", icon:"fa-building", titulo:"Apresentação da SESGI", pessoas:["Cristina Castro"],
+    slides:"Apresentacoes/apresentacao-enafis-sesgi.pptx", slidesTam:"10,9 MB"},
   {data:"2026-09-22", ini:"14:30", fim:"16:10", mod:"m4", icon:"fa-money-check-dollar", titulo:"GEF Investimentos: rito atual e o Sistema SAI", pessoas:["Luiz Carlos"]},
   {data:"2026-09-22", ini:"16:10", fim:"16:30", pausa:"intervalo"},
   {data:"2026-09-22", ini:"16:30", fim:"18:10", mod:"m2", icon:"fa-sitemap", titulo:"Estrutura de fiscalização das Autoridades Portuárias: panorama e desafios regionais na fiscalização temática", pessoas:["Thiago Bonetti"]},
@@ -842,6 +859,18 @@ function detalheNode(a,m){
   return [btn,caixa];
 }
 
+const ehArquivo = url => /\.pptx?$/i.test(url);
+function slidesNode(a,classe){
+  const arq=ehArquivo(a.slides);
+  return h("a",{class:(classe||"ativ__slides")+(arq?" slides--arquivo":""),href:a.slides,
+                target:"_blank",rel:"noopener noreferrer",
+                title:(arq?"Baixar os slides (PowerPoint): ":"Abrir a apresentação: ")+a.titulo},
+    fa(arq?"fa-solid fa-file-powerpoint":"fa-solid fa-person-chalkboard"),
+    arq?"Baixar os slides":"Ver a apresentação",
+    a.slidesTam ? h("span",{class:"slides__tam"}, a.slidesTam) : null,
+    fa(arq?"fa-solid fa-download":"fa-solid fa-arrow-up-right-from-square"));
+}
+
 function ativNode(a){
   const m=MODULOS[a.mod];
   const fim=concluida(a), ag=acontecendo(a);
@@ -863,7 +892,8 @@ function ativNode(a){
         ),
         a.pessoas ? h("p",{class:"ativ__pessoas"}, fa("fa-solid fa-microphone-lines"), a.pessoas.join(" · ")) : null,
         a.obs ? h("p",{class:"ativ__pessoas"}, fa("fa-solid fa-circle-info"), a.obs) : null,
-        a.detalhe ? detalheNode(a,m) : null
+        a.detalhe ? detalheNode(a,m) : null,
+        a.slides ? slidesNode(a) : null
       )
     ),
     h("div",{class:"ativ__tags"},
@@ -937,7 +967,8 @@ function mcardNode(k,lista){
         h("div",{class:"item__txt"},
           h("h3",{class:"item__tit"}, a.titulo),
           a.pessoas ? h("p",{class:"item__pes"}, fa("fa-solid fa-microphone-lines"), a.pessoas.join(" · ")) : null,
-          a.obs ? h("p",{class:"item__pes"}, fa("fa-solid fa-circle-info"), a.obs) : null
+          a.obs ? h("p",{class:"item__pes"}, fa("fa-solid fa-circle-info"), a.obs) : null,
+          a.slides ? slidesNode(a,"item__slides") : null
         ),
         h("div",{class:"item__dir"},
           h("span",{class:"tag tag--ch"}, fmtDur(min)),
