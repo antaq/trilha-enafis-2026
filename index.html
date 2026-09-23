@@ -133,6 +133,29 @@
   .btn-teams--barra .seta{opacity:.7;}
   .btn-teams--barra:hover{--vivo:#991B1B;border-color:#7F1D1D;box-shadow:0 6px 14px -5px rgba(153,27,27,.9);}
   .btn-teams--barra:focus-visible{outline:3px solid rgba(185,28,28,.5);outline-offset:2px;}
+  /* gravações: roxo do Teams, para não disputar com o vermelho do ao vivo */
+  .btn-gravacoes{--vivo:#5B5FC7;}
+  .btn-teams--hero .ico{font-size:1.45rem;line-height:1;width:26px;text-align:center;}
+  .btn-teams--barra .ico{font-size:1.02rem;line-height:1;}
+
+  /* variante discreta: o botão que não é o destaque do momento */
+  .btn-teams--hero.btn-teams--suave{
+    --vivo:#2A4A78;background:var(--vivo);
+    box-shadow:0 0 0 1px rgba(255,255,255,.18);
+  }
+  .btn-teams--hero.btn-teams--suave small{color:#C7D8EC;}
+  .btn-teams--hero.btn-teams--suave:hover{--vivo:#35598E;box-shadow:0 0 0 1px rgba(255,255,255,.3);}
+  .btn-teams--barra.btn-teams--suave{
+    --vivo:#64748B;background:#fff;color:var(--tinta-suave);
+    border-color:var(--borda);box-shadow:none;
+  }
+  .btn-teams--barra.btn-teams--suave:hover{--vivo:#475569;background:#F8FAFC;border-color:#CBD5E1;box-shadow:none;}
+  /* na barra fixa cabem seis controles em uma linha só se o secundário for
+     apenas o ícone; o title e o aria-label continuam descrevendo o destino */
+  .btn-teams--barra.btn-teams--suave{padding:0 11px;}
+  .btn-teams--barra.btn-teams--suave .rotulo,
+  .btn-teams--barra.btn-teams--suave .seta{display:none;}
+
   .toolbar .btn-teams--barra{display:none;}
   .sticky.fixada .toolbar .btn-teams--barra{display:inline-flex;animation:surge .22s ease both;}
   @keyframes surge{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
@@ -484,12 +507,21 @@
 
     <div class="hero__acoes">
       <div id="contagem" class="contagem"></div>
-      <a class="btn-teams btn-teams--hero" href="https://teams.microsoft.com/meet/223012699407232?p=MR9b9NvaTKl0pHHT3p" target="_blank" rel="noopener noreferrer"
+      <a class="btn-teams btn-teams--hero js-vivo" href="https://teams.microsoft.com/meet/223012699407232?p=MR9b9NvaTKl0pHHT3p" target="_blank" rel="noopener noreferrer"
          title="Entrar na transmissão do ENAFIS 2026 pelo Microsoft Teams (abre em nova aba)">
         <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><rect x="3" y="6" width="13" height="13" rx="2.6" fill="#fff"/><circle class="recorte" cx="17.6" cy="6.1" r="4.4"/><circle cx="17.6" cy="6.1" r="3.3" fill="#fff" opacity=".82"/><rect class="recorte" x="5.7" y="8.8" width="7.6" height="1.9" rx=".4"/><rect class="recorte" x="8.55" y="8.8" width="1.9" height="6.6" rx=".4"/></svg>
         <span class="txt">
           <b>Assistir pelo Teams</b>
           <small>Transmissão ao vivo · participação remota</small>
+        </span>
+        <i class="fa-solid fa-arrow-up-right-from-square seta" aria-hidden="true"></i>
+      </a>
+      <a class="btn-teams btn-teams--hero btn-gravacoes js-gravacoes" href="https://teams.cloud.microsoft/l/meetingrecap?driveId=b%21hjqQsAr3ckKyGGDSo4DUTcrsr52dlyVFrii7GM2pXzTgCflkxfxzTZYkqPxzk3_f&amp;driveItemId=01CEFYA5Y334ZR3ZG4LVFILFNZO2OLL35N&amp;sitePath=https%3A%2F%2Fantaq-my.sharepoint.com%2F%3Av%3A%2Fg%2Fpersonal%2Fgpf_antaq_gov_br%2FIQAb3zMd5NxdSoWVuXacte-tAeN5Qy8uMlP_QYE42Fe3fLU&amp;fileUrl=https%3A%2F%2Fantaq-my.sharepoint.com%2Fpersonal%2Fgpf_antaq_gov_br%2FDocuments%2FGrava%C3%A7%C3%B5es%2FEncontro+Nacional+de+Fiscaliza%C3%A7%C3%A3o+%28Enafis%29+2026-20260921_083830-Grava%C3%A7%C3%A3o+de+Reuni%C3%A3o+1.mp4%3Fweb%3D1&amp;iCalUid=040000008200E00074C5B7101A82E0080000000077459AE30D46DD0100000000000000001000000030A440FF6963AC4585E1E061F609BA61&amp;threadId=19%3Ameeting_ZWViNzMyMTktNzBlMC00YzE0LTg0ZTMtMDJlMDkzMjEzN2Q4%40thread.v2&amp;organizerId=14075e36-249e-4ab5-9be6-3fc97da5637d&amp;tenantId=8e57f727-0e5e-4130-8e24-2d5f7c8c38f6&amp;callId=cc566603-f046-43de-b9c6-3e8d4c2333fd&amp;threadType=Meeting&amp;meetingType=Scheduled&amp;subType=RecapSharingLink_RecapCore&amp;recapType=RecordingAndTranscript" target="_blank" rel="noopener noreferrer"
+         title="Reúne as gravações de todos os dias do ENAFIS 2026. Cada nova gravação aparece aqui automaticamente, ao fim da transmissão do dia (abre em nova aba).">
+        <i class="fa-solid fa-circle-play ico" aria-hidden="true"></i>
+        <span class="txt">
+          <b>Ver as gravações</b>
+          <small>Todos os dias · cada nova entra sozinha</small>
         </span>
         <i class="fa-solid fa-arrow-up-right-from-square seta" aria-hidden="true"></i>
       </a>
@@ -519,11 +551,18 @@
     <a class="btn-icone" href="Programacao-ENAFIS-2026.pdf" target="_blank" rel="noopener noreferrer" title="Baixar a programação oficial em PDF" aria-label="Baixar a programação oficial em PDF"><i class="fa-solid fa-file-pdf"></i></a>
     <button class="btn-icone" id="btnImprimir" title="Imprimir ou salvar em PDF" aria-label="Imprimir ou salvar em PDF"><i class="fa-solid fa-print"></i></button>
     <div class="resultado">Mostrando <strong id="cont">27 de 27</strong></div>
-    <a class="btn-teams btn-teams--barra" href="https://teams.microsoft.com/meet/223012699407232?p=MR9b9NvaTKl0pHHT3p" target="_blank" rel="noopener noreferrer"
+    <a class="btn-teams btn-teams--barra js-vivo" href="https://teams.microsoft.com/meet/223012699407232?p=MR9b9NvaTKl0pHHT3p" target="_blank" rel="noopener noreferrer"
        title="Entrar na transmissão do ENAFIS 2026 pelo Microsoft Teams (abre em nova aba)"
        aria-label="Assistir ao vivo pelo Microsoft Teams (abre em nova aba)">
       <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="6" width="13" height="13" rx="2.6" fill="#fff"/><circle class="recorte" cx="17.6" cy="6.1" r="4.4"/><circle cx="17.6" cy="6.1" r="3.3" fill="#fff" opacity=".82"/><rect class="recorte" x="5.7" y="8.8" width="7.6" height="1.9" rx=".4"/><rect class="recorte" x="8.55" y="8.8" width="1.9" height="6.6" rx=".4"/></svg>
       <span class="rotulo">Assistir ao vivo</span>
+      <i class="fa-solid fa-arrow-up-right-from-square seta" aria-hidden="true"></i>
+    </a>
+    <a class="btn-teams btn-teams--barra btn-gravacoes js-gravacoes" href="https://teams.cloud.microsoft/l/meetingrecap?driveId=b%21hjqQsAr3ckKyGGDSo4DUTcrsr52dlyVFrii7GM2pXzTgCflkxfxzTZYkqPxzk3_f&amp;driveItemId=01CEFYA5Y334ZR3ZG4LVFILFNZO2OLL35N&amp;sitePath=https%3A%2F%2Fantaq-my.sharepoint.com%2F%3Av%3A%2Fg%2Fpersonal%2Fgpf_antaq_gov_br%2FIQAb3zMd5NxdSoWVuXacte-tAeN5Qy8uMlP_QYE42Fe3fLU&amp;fileUrl=https%3A%2F%2Fantaq-my.sharepoint.com%2Fpersonal%2Fgpf_antaq_gov_br%2FDocuments%2FGrava%C3%A7%C3%B5es%2FEncontro+Nacional+de+Fiscaliza%C3%A7%C3%A3o+%28Enafis%29+2026-20260921_083830-Grava%C3%A7%C3%A3o+de+Reuni%C3%A3o+1.mp4%3Fweb%3D1&amp;iCalUid=040000008200E00074C5B7101A82E0080000000077459AE30D46DD0100000000000000001000000030A440FF6963AC4585E1E061F609BA61&amp;threadId=19%3Ameeting_ZWViNzMyMTktNzBlMC00YzE0LTg0ZTMtMDJlMDkzMjEzN2Q4%40thread.v2&amp;organizerId=14075e36-249e-4ab5-9be6-3fc97da5637d&amp;tenantId=8e57f727-0e5e-4130-8e24-2d5f7c8c38f6&amp;callId=cc566603-f046-43de-b9c6-3e8d4c2333fd&amp;threadType=Meeting&amp;meetingType=Scheduled&amp;subType=RecapSharingLink_RecapCore&amp;recapType=RecordingAndTranscript" target="_blank" rel="noopener noreferrer"
+       title="Reúne as gravações de todos os dias do ENAFIS 2026. Cada nova gravação aparece aqui automaticamente, ao fim da transmissão do dia (abre em nova aba)."
+       aria-label="Ver as gravações do ENAFIS 2026 no Teams (abre em nova aba)">
+      <i class="fa-solid fa-circle-play ico" aria-hidden="true"></i>
+      <span class="rotulo">Gravações</span>
       <i class="fa-solid fa-arrow-up-right-from-square seta" aria-hidden="true"></i>
     </a>
   </div>
@@ -750,7 +789,16 @@ const isoHoje    = () => { const d=agora(); return `${d.getFullYear()}-${pad(d.g
   document.getElementById("st-ativ").textContent = SESSOES.length;
 })();
 
+/* durante o evento o destaque é o ao vivo; terminado, passa para as gravações */
+function atualizaDestaque(){
+  const ultimoDia=DIAS_TODOS[DIAS_TODOS.length-1].itens;
+  const encerrado = agora() > fimDate(ultimoDia[ultimoDia.length-1]);
+  document.querySelectorAll(".js-vivo").forEach(el=>el.classList.toggle("btn-teams--suave",encerrado));
+  document.querySelectorAll(".js-gravacoes").forEach(el=>el.classList.toggle("btn-teams--suave",!encerrado));
+}
+
 function atualizaContagem(){
+  atualizaDestaque();
   const el=document.getElementById("contagem");
   const inicio=iniDate(DIAS_TODOS[0].itens[0]);
   const ultimoDia=DIAS_TODOS[DIAS_TODOS.length-1].itens;
