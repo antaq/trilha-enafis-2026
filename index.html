@@ -307,8 +307,9 @@
   .ativ__mais[aria-expanded="true"] i{transform:rotate(180deg);}
 
   /* link para os slides da apresentação */
+  .slides-grupo{margin-top:9px;display:flex;flex-wrap:wrap;gap:8px;}
   .ativ__slides,.item__slides{
-    margin-top:9px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;text-decoration:none;
     background:var(--mc);border:1px solid var(--mc);color:#fff;border-radius:999px;padding:5px 13px;
     font-family:'Montserrat',sans-serif;font-weight:700;font-size:.74rem;transition:.15s;
   }
@@ -641,7 +642,8 @@ const PROGRAMA = [
 
   /* ---------- DIA 3 · quarta-feira, 23/09 ---------- */
   {data:"2026-09-23", ini:"08:00", fim:"08:30", mod:"inst", icon:"fa-hands-clapping", titulo:"Boas-vindas"},
-  {data:"2026-09-23", ini:"08:30", fim:"10:00", mod:"m2", icon:"fa-anchor", titulo:"Vports: desafios da fiscalização de uma concessão portuária", pessoas:["Igor Moura"]},
+  {data:"2026-09-23", ini:"08:30", fim:"10:00", mod:"m2", icon:"fa-anchor", titulo:"Vports: desafios da fiscalização de uma concessão portuária", pessoas:["Igor Moura"],
+    slides:"Apresentacoes/desafios-concessao-portuaria.pdf", slidesTam:"5,4 MB"},
   {data:"2026-09-23", ini:"10:00", fim:"10:20", pausa:"intervalo"},
   {data:"2026-09-23", ini:"10:20", fim:"12:00", mod:"m4", icon:"fa-boxes-stacked", titulo:"GEF Contêineres: principais atividades e autocomposição", pessoas:["Luís Bender"]},
   {data:"2026-09-23", ini:"12:00", fim:"14:00", pausa:"almoco"},
@@ -649,7 +651,10 @@ const PROGRAMA = [
     slides:"Apresentacoes/apresentacao-novas-normas-navegacao-interior.pptx", slidesTam:"691 KB"},
   {data:"2026-09-23", ini:"16:00", fim:"16:20", pausa:"intervalo"},
   {data:"2026-09-23", ini:"16:20", fim:"18:20", mod:"m3", icon:"fa-ship", titulo:"Fiscalização operacional na navegação interior: diretrizes da SFC e experiências", pessoas:["Flávia Pontilhão","Cleydson Silva","Renan Santos"],
-    slides:"Apresentacoes/operacao-gratuidade-garantida.pptx", slidesTam:"230 KB"},
+    slides:[
+      {url:"Apresentacoes/operacao-gratuidade-garantida.pptx", rotulo:"Operação Gratuidade Garantida", tam:"230 KB"},
+      {url:"Apresentacoes/operacao-hora-certa.pptx",           rotulo:"Operação Hora Certa",           tam:"313 KB"}
+    ]},
 
   /* ---------- DIA 4 · quinta-feira, 24/09 ---------- */
   {data:"2026-09-24", ini:"08:00", fim:"08:30", mod:"inst", icon:"fa-hands-clapping", titulo:"Boas-vindas"},
@@ -820,10 +825,25 @@ function aplicaModulo(k){
 })();
 
 /* ===================== FILTRO ===================== */
+/* cada tipo de destino se comporta de um jeito no navegador */
+const TIPO_SLIDE = {
+  ppt: {icon:"fa-file-powerpoint", seta:"fa-download",                 rot:"Baixar os slides", acao:"Baixar os slides (PowerPoint): "},
+  pdf: {icon:"fa-file-pdf",        seta:"fa-arrow-up-right-from-square", rot:"Abrir o PDF",      acao:"Abrir os slides em PDF: "},
+  web: {icon:"fa-person-chalkboard",seta:"fa-arrow-up-right-from-square", rot:"Ver a apresentação", acao:"Abrir a apresentação: "}
+};
+const tipoSlide = url => /\.pptx?$/i.test(url) ? TIPO_SLIDE.ppt
+                       : /\.pdf$/i.test(url)   ? TIPO_SLIDE.pdf
+                       : TIPO_SLIDE.web;
+/* "slides" aceita uma URL solta ou uma lista de {url, rotulo, tam} */
+const listaSlides = a => !a.slides ? []
+  : Array.isArray(a.slides) ? a.slides
+  : [{url:a.slides, tam:a.slidesTam}];
+
 function textoBusca(a){
   const m=MODULOS[a.mod];
   const det=a.detalhe ? [a.detalhe.mediacao,...a.detalhe.pessoas.map(p=>`${p.nome} ${p.papel} ${p.org}`)].join(" ") : "";
-  return [a.titulo,(a.pessoas||[]).join(" "),a.obs||"",m.rot,m.nome,m.curto,det].join(" ");
+  const sli=listaSlides(a).map(s=>s.rotulo||"").join(" ");
+  return [a.titulo,(a.pessoas||[]).join(" "),a.obs||"",m.rot,m.nome,m.curto,det,sli].join(" ");
 }
 function filtra(){
   const q=norm(termoBusca);
@@ -863,16 +883,19 @@ function detalheNode(a,m){
   return [btn,caixa];
 }
 
-const ehArquivo = url => /\.pptx?$/i.test(url);
 function slidesNode(a,classe){
-  const arq=ehArquivo(a.slides);
-  return h("a",{class:(classe||"ativ__slides")+(arq?" slides--arquivo":""),href:a.slides,
-                target:"_blank",rel:"noopener noreferrer",
-                title:(arq?"Baixar os slides (PowerPoint): ":"Abrir a apresentação: ")+a.titulo},
-    fa(arq?"fa-solid fa-file-powerpoint":"fa-solid fa-person-chalkboard"),
-    arq?"Baixar os slides":"Ver a apresentação",
-    a.slidesTam ? h("span",{class:"slides__tam"}, a.slidesTam) : null,
-    fa(arq?"fa-solid fa-download":"fa-solid fa-arrow-up-right-from-square"));
+  const itens=listaSlides(a);
+  if(!itens.length) return null;
+  return h("div",{class:"slides-grupo"}, ...itens.map(s=>{
+    const t=tipoSlide(s.url);
+    return h("a",{class:(classe||"ativ__slides")+(t===TIPO_SLIDE.web?"":" slides--arquivo"),href:s.url,
+                  target:"_blank",rel:"noopener noreferrer",
+                  title:t.acao+(s.rotulo||a.titulo)},
+      fa("fa-solid "+t.icon),
+      s.rotulo || t.rot,
+      s.tam ? h("span",{class:"slides__tam"}, s.tam) : null,
+      fa("fa-solid "+t.seta));
+  }));
 }
 
 function ativNode(a){
